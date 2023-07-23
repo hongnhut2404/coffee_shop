@@ -17,8 +17,9 @@ import com.example.midtermproject.R;
 import java.util.ArrayList;
 
 public class AdapterCoffee extends RecyclerView.Adapter<AdapterCoffee.CoffeeListHolder> {
-
     ArrayList<ModelCoffee> coffeeModelList;
+    GetOnCoffee interfaceGetCoffee;
+
     @Override
     public CoffeeListHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.coffeeliststyle, parent, false);
@@ -28,9 +29,7 @@ public class AdapterCoffee extends RecyclerView.Adapter<AdapterCoffee.CoffeeList
     @Override
     public void onBindViewHolder(CoffeeListHolder holder, int position) {
         holder.coffeeName.setText(coffeeModelList.get(position).getCoffeeName());
-
         Glide.with(holder.itemView.getContext()).load(coffeeModelList.get(position).getImageURL()).into(holder.imageView);
-
     }
 
     @Override
@@ -43,7 +42,7 @@ public class AdapterCoffee extends RecyclerView.Adapter<AdapterCoffee.CoffeeList
         this.coffeeModelList = coffeeModelList;
     }
 
-    class CoffeeListHolder extends RecyclerView.ViewHolder {
+    class CoffeeListHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView coffeeName;
         ImageView imageView;
@@ -52,6 +51,18 @@ public class AdapterCoffee extends RecyclerView.Adapter<AdapterCoffee.CoffeeList
 
             coffeeName = itemView.findViewById(R.id.nameCoffee);
             imageView = itemView.findViewById(R.id.imageCoffee);
+
+            coffeeName.setOnClickListener(this);
+            imageView.setOnClickListener(this);
         }
+
+        public void onClick(View v)
+        {
+            interfaceGetCoffee.clickedCoffee(getAdapterPosition(), coffeeModelList);
+        }
+    }
+
+    public interface GetOnCoffee{
+        void clickedCoffee(int position, ArrayList<ModelCoffee> modelCoffees);
     }
 }

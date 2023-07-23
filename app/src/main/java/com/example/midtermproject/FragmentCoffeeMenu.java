@@ -63,5 +63,14 @@ public class FragmentCoffeeMenu extends Fragment {
         });
     }
 
+    public void clickedCoffee(int position, ArrayList<ModelCoffee> modelCoffees)
+    {
+        String coffeeID = modelCoffees.get(position).getCoffeeID();
+        String coffeeName = modelCoffees.get(position).getCoffeeName();
+        String imageURl = modelCoffees.get(position).getImageURL();
+        float price = modelCoffees.get(position).getPrice();
+    }
+
+
 
 }

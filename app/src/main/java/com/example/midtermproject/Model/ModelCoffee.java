@@ -7,7 +7,7 @@ public class ModelCoffee {
     String coffeeID;
     String coffeeName, imageURL;
 
-    int price;
+    float price;
 
     public ModelCoffee() {
     }
@@ -43,11 +43,11 @@ public class ModelCoffee {
         this.imageURL = imageURL;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 }
