@@ -51,6 +51,7 @@ public class FragmentCoffeeMenu extends Fragment {
 
         recyclerView = view.findViewById(R.id.recViewAll);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        //recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mAdapter = new AdapterCoffee();
         viewModel = new ViewModelProvider(getActivity()).get(CoffeeViewModel.class);
 
