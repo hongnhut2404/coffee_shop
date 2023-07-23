@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".FragmentCoffeeDetail"
+    android:padding="10dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="6dp"
+        android:layout_margin="10dp">
+
+
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layoutTitle"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:src="@drawable/cart"
+                    android:backgroundTint="@color/white"
+                    android:id="@+id/buttonCart"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:src="@drawable/arrowback"
+                    android:backgroundTint="@color/white"
+                    android:id="@+id/buttonBack"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="Detail"
+                    android:textSize="20sp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="15dp"/>
+
+
+
+            </RelativeLayout>
+
+
+
+             <ImageView
+                 android:layout_width="match_parent"
+                 android:layout_height="150dp"
+                 android:layout_below="@id/layoutTitle"
+                 android:id="@+id/imageCoffeeDetail"
+                 android:src="@drawable/ic_launcher_background"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imageCoffeeDetail"
+                android:id="@+id/layoutQuantity"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="Coffee Name"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:id="@+id/textCoffeeDetail"/>
+
+                <Button
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="+"
+                    android:textColor="@color/black"
+                    android:backgroundTint="#D6D6D6"
+                    android:id="@+id/incrementCoffee"
+                    android:layout_alignParentRight="true"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="18sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/incrementCoffee"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:id="@+id/textNumberOrder"/>
+
+
+                <Button
+                    android:id="@+id/decrementCoffee"
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#D6D6D6"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/textNumberOrder"
+                    android:text="-"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layoutShot"
+                android:layout_below="@id/layoutQuantity"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="Shot"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:id="@+id/textCoffeeShot"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Double"
+                    android:textColor="@color/black"
+                    android:backgroundTint="#D6D6D6"
+                    android:id="@+id/buttonDoubleShot"
+                    android:layout_alignParentRight="true"
+                    />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Single"
+                    android:textColor="@color/black"
+                    android:backgroundTint="#D6D6D6"
+                    android:id="@+id/buttonSingleShot"
+                    android:layout_toLeftOf="@id/buttonDoubleShot"
+
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layoutSelect"
+                android:layout_below="@id/layoutShot"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="Select"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:id="@+id/textCoffeeSelect"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:backgroundTint="@color/white"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/buttonSelectCold"
+                    android:src="@drawable/cart"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:backgroundTint="@color/white"
+                    android:layout_toLeftOf="@id/buttonSelectCold"
+                    android:id="@+id/buttonSelectHot"
+                    android:src="@drawable/cart"/>
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layoutSelectSize"
+                android:layout_below="@id/layoutSelect"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="Size"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:id="@+id/textCoffeeSelectSize"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:backgroundTint="@color/white"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/buttonSelectBig"
+                    android:src="@drawable/cart"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:backgroundTint="@color/white"
+                    android:layout_toLeftOf="@id/buttonSelectBig"
+                    android:id="@+id/buttonSelectMedium"
+                    android:src="@drawable/cart"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:backgroundTint="@color/white"
+                    android:layout_toLeftOf="@id/buttonSelectMedium"
+                    android:id="@+id/buttonSelectSmall"
+                    android:src="@drawable/cart"/>
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layoutSelectIce"
+                android:layout_below="@id/layoutSelectSize"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="Ice"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:id="@+id/textCoffeeSelectIce"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:backgroundTint="@color/white"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/buttonSelect3Ice"
+                    android:src="@drawable/cart"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:backgroundTint="@color/white"
+                    android:layout_toLeftOf="@id/buttonSelect3Ice"
+                    android:id="@+id/buttonSelect2Ice"
+                    android:src="@drawable/cart"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:backgroundTint="@color/white"
+                    android:layout_toLeftOf="@id/buttonSelect2Ice"
+                    android:id="@+id/buttonSelect1Ice"
+                    android:src="@drawable/cart"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layoutTotalAmount"
+                android:layout_below="@id/layoutSelectIce"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="50dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="Total Amount"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:id="@+id/textCoffeeTotalAmount"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentRight="true"
+                    android:text="$3.00"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:id="@+id/textCoffeeMoney"/>
+
+
+
+
+            </RelativeLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add to cart"
+                android:textSize="20sp"
+                android:padding="10dp"
+                android:layout_alignParentBottom="true"/>
+
+
+        </RelativeLayout>
+        
+        
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>
