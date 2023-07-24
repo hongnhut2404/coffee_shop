@@ -5,6 +5,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
+import com.example.midtermproject.Model.ModelCoffee;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -17,4 +19,20 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
 
     }
+
+    public void goToDetailFragment(ModelCoffee modelCoffee)
+    {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+
+        FragmentCoffeeDetail fragmentCoffeeDetail = new FragmentCoffeeDetail();
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("object_coffee", modelCoffee);
+        fragmentCoffeeDetail.setArguments(bundle);
+
+        fragmentTransaction.replace(R.id.fragmentCoffeeMenu, fragmentCoffeeDetail);
+        fragmentTransaction.addToBackStack(FragmentCoffeeDetail.TAG);
+        fragmentTransaction.commit();
+    }
+
 }

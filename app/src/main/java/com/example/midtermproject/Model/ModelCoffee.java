@@ -2,7 +2,9 @@ package com.example.midtermproject.Model;
 
 import com.google.firebase.firestore.DocumentId;
 
-public class ModelCoffee {
+import java.io.Serializable;
+
+public class ModelCoffee implements Serializable{
     @DocumentId
     String coffeeID;
     String coffeeName, imageURL;

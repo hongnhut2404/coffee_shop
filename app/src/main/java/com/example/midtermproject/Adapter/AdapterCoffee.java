@@ -21,7 +21,6 @@ import java.util.ArrayList;
 
 public class AdapterCoffee extends RecyclerView.Adapter<AdapterCoffee.CoffeeListHolder> {
     ArrayList<ModelCoffee> coffeeModelList;
-
     GetOnCoffee mGetOnCoffee;
 
     public AdapterCoffee(GetOnCoffee mGetOnCoffee) {
@@ -38,10 +37,10 @@ public class AdapterCoffee extends RecyclerView.Adapter<AdapterCoffee.CoffeeList
     public void onBindViewHolder(CoffeeListHolder holder, int position) {
         final ModelCoffee modelCoffee = coffeeModelList.get(position);
 
-        holder.coffeeName.setText(modelCoffee.getCoffeeName());
+        holder.coffeeName.setText(coffeeModelList.get(position).getCoffeeName());
         Glide.with(holder.itemView.getContext()).load(coffeeModelList.get(position).getImageURL()).into(holder.imageView);
 
-        holder.coffeeName.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mGetOnCoffee.clickedCoffee(modelCoffee);
