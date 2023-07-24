@@ -10,15 +10,25 @@ public class ModelCoffee implements Serializable{
     String coffeeName, imageURL;
 
     float price;
+    int redeemPoint;
 
     public ModelCoffee() {
     }
 
-    public ModelCoffee(String coffeeID, String coffeeName, String imageURL, int price) {
+    public ModelCoffee(String coffeeID, String coffeeName, String imageURL, float price, int redeemPoint) {
         this.coffeeID = coffeeID;
         this.coffeeName = coffeeName;
         this.imageURL = imageURL;
         this.price = price;
+        this.redeemPoint = redeemPoint;
+    }
+
+    public int getRedeemPoint() {
+        return redeemPoint;
+    }
+
+    public void setRedeemPoint(int redeemPoint) {
+        this.redeemPoint = redeemPoint;
     }
 
     public String getCoffeeID() {
