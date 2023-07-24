@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class AdapterCoffee extends RecyclerView.Adapter<AdapterCoffee.CoffeeListHolder> {
     ArrayList<ModelCoffee> coffeeModelList;
-    GetOnCoffee interfaceGetCoffee;
+   // GetOnCoffee interfaceGetCoffee;
 
     @Override
     public CoffeeListHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -42,7 +42,7 @@ public class AdapterCoffee extends RecyclerView.Adapter<AdapterCoffee.CoffeeList
         this.coffeeModelList = coffeeModelList;
     }
 
-    class CoffeeListHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    class CoffeeListHolder extends RecyclerView.ViewHolder{
 
         TextView coffeeName;
         ImageView imageView;
@@ -51,18 +51,7 @@ public class AdapterCoffee extends RecyclerView.Adapter<AdapterCoffee.CoffeeList
 
             coffeeName = itemView.findViewById(R.id.nameCoffee);
             imageView = itemView.findViewById(R.id.imageCoffee);
-
-            coffeeName.setOnClickListener(this);
-            imageView.setOnClickListener(this);
         }
 
-        public void onClick(View v)
-        {
-            interfaceGetCoffee.clickedCoffee(getAdapterPosition(), coffeeModelList);
-        }
-    }
-
-    public interface GetOnCoffee{
-        void clickedCoffee(int position, ArrayList<ModelCoffee> modelCoffees);
     }
 }

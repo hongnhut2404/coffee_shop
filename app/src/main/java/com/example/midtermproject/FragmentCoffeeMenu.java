@@ -51,7 +51,7 @@ public class FragmentCoffeeMenu extends Fragment {
 
         recyclerView = view.findViewById(R.id.recViewAll);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        //recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
         mAdapter = new AdapterCoffee();
         viewModel = new ViewModelProvider(getActivity()).get(CoffeeViewModel.class);
 
@@ -63,13 +63,16 @@ public class FragmentCoffeeMenu extends Fragment {
         });
     }
 
-    public void clickedCoffee(int position, ArrayList<ModelCoffee> modelCoffees)
-    {
-        String coffeeID = modelCoffees.get(position).getCoffeeID();
-        String coffeeName = modelCoffees.get(position).getCoffeeName();
-        String imageURl = modelCoffees.get(position).getImageURL();
-        float price = modelCoffees.get(position).getPrice();
-    }
+//    public void clickedCoffee(int position, ArrayList<ModelCoffee> modelCoffees)
+//    {
+//        String coffeeID = modelCoffees.get(position).getCoffeeID();
+//        String coffeeName = modelCoffees.get(position).getCoffeeName();
+//        String imageURl = modelCoffees.get(position).getImageURL();
+//        float price = modelCoffees.get(position).getPrice();
+//
+//
+//
+//    }
 
 
 
