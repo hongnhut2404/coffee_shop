@@ -31,17 +31,20 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
-                switch (item.getItemId())
+                if (item.getItemId() == R.id.menu)
                 {
-//                    case R.id.home:
-//                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, fragmentCoffeeMenu).commit();
-//                        return true;
-//                    case R.id.reward:
-//                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, fragmentReward).commit();
-//                        return true;
-//                    case R.id.order:
-//                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, fragmentMyOrder).commit();
-//                        return true;
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, fragmentCoffeeMenu).commit();
+                    return true;
+                }
+                else if (item.getItemId() == R.id.reward)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, fragmentReward).commit();
+                    return true;
+                }
+                else if (item.getItemId() == R.id.order)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, fragmentMyOrder).commit();
+                    return true;
                 }
                 return false;
             }
@@ -59,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         bundle.putSerializable("object_coffee", modelCoffee);
         fragmentCoffeeDetail.setArguments(bundle);
 
-        fragmentTransaction.replace(R.id.fragmentCoffeeMenu, fragmentCoffeeDetail);
+        fragmentTransaction.replace(R.id.fragmentContainerView, fragmentCoffeeDetail);
         fragmentTransaction.addToBackStack(FragmentCoffeeDetail.TAG);
         fragmentTransaction.commit();
     }
