@@ -1,22 +1,51 @@
 package com.example.midtermproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.example.midtermproject.Model.ModelCoffee;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
+
+    BottomNavigationView bottomNavigationView;
+
+    FragmentCoffeeMenu fragmentCoffeeMenu = new FragmentCoffeeMenu();
+    FragmentReward fragmentReward = new FragmentReward();
+    FragmentMyOrder fragmentMyOrder = new FragmentMyOrder();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.fragmentCoffeeMenu, new FragmentCoffeeMenu());
-        fragmentTransaction.commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, fragmentCoffeeMenu).commit();
+
+        bottomNavigationView = findViewById(R.id.bottomNavigation);
+
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                switch (item.getItemId())
+                {
+//                    case R.id.home:
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, fragmentCoffeeMenu).commit();
+//                        return true;
+//                    case R.id.reward:
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, fragmentReward).commit();
+//                        return true;
+//                    case R.id.order:
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, fragmentMyOrder).commit();
+//                        return true;
+                }
+                return false;
+            }
+        });
 
     }
 

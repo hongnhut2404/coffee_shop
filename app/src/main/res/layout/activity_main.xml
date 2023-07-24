@@ -10,7 +10,15 @@
         android:id="@+id/fragmentContainerView"
         android:name="com.example.midtermproject.FragmentCoffeeMenu"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNavigation"/>
+    
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottomNavigation"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_navigation"/>
 
 
 </RelativeLayout>
