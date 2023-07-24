@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="20dp"
+    android:layout_marginVertical="10dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CoffeeName"
+                android:textSize="18sp"
+                android:id="@+id/nameCoffeeHistory"
+                android:textColor="#324A59"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="History date"
+                android:textSize="15sp"
+                android:textColor="#324A5938"
+                android:layout_marginTop="5dp"
+                android:id="@+id/dateCoffeeHistory"/>
+
+        </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+12pts"
+        android:layout_alignParentRight="true"
+        android:textSize="25sp"
+        android:textColor="#324A59"
+        android:layout_centerVertical="true"
+        android:id="@+id/pointsHistory"/>
+
+
+</RelativeLayout>
