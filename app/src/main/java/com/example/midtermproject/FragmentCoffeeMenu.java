@@ -1,5 +1,8 @@
 package com.example.midtermproject;
 
+import static android.content.ContentValues.TAG;
+
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,6 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +31,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 
 
-public class FragmentCoffeeMenu extends Fragment {
+public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnCoffee{
 
     FirebaseFirestore firebaseFirestore;
     AdapterCoffee mAdapter;
@@ -52,7 +56,12 @@ public class FragmentCoffeeMenu extends Fragment {
         recyclerView = view.findViewById(R.id.recViewAll);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
-        mAdapter = new AdapterCoffee();
+        mAdapter = new AdapterCoffee(new AdapterCoffee.GetOnCoffee() {
+            @Override
+            public void clickedCoffee(ModelCoffee modelCoffee) {
+
+            }
+        });
         viewModel = new ViewModelProvider(getActivity()).get(CoffeeViewModel.class);
 
         viewModel.getCoffeeList().observe(getViewLifecycleOwner(), new Observer<ArrayList<ModelCoffee>>(){
@@ -63,17 +72,11 @@ public class FragmentCoffeeMenu extends Fragment {
         });
     }
 
-//    public void clickedCoffee(int position, ArrayList<ModelCoffee> modelCoffees)
-//    {
-//        String coffeeID = modelCoffees.get(position).getCoffeeID();
-//        String coffeeName = modelCoffees.get(position).getCoffeeName();
-//        String imageURl = modelCoffees.get(position).getImageURL();
-//        float price = modelCoffees.get(position).getPrice();
-//
-//
-//
-//    }
+    public void clickedCoffee(ModelCoffee modelCoffee)
+    {
 
+
+    }
 
 
 }
