@@ -43,7 +43,7 @@
         </LinearLayout>
 
         <ImageButton
-            android:id="@+id/userInfo"
+            android:id="@+id/cart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -57,7 +57,7 @@
             android:src="@drawable/cart" />
 
         <ImageButton
-            android:id="@+id/cart"
+            android:id="@+id/userInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -65,7 +65,7 @@
             android:layout_marginTop="0dp"
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="0dp"
-            android:layout_toLeftOf="@id/userInfo"
+            android:layout_toLeftOf="@id/cart"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:backgroundTint="@color/white"
             android:src="@drawable/person" />

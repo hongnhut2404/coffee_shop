@@ -2,6 +2,7 @@ package com.example.midtermproject;
 
 import static android.content.ContentValues.TAG;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -17,6 +18,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.example.midtermproject.Adapter.AdapterCoffee;
 import com.example.midtermproject.MVVM.CoffeeViewModel;
@@ -40,6 +42,7 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
 
     MainActivity mMainActivity;
     View mView;
+    ImageButton btnSwitchProfile;
 
     public FragmentCoffeeMenu() {
     }
@@ -53,6 +56,14 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
 
         recyclerView = mView.findViewById(R.id.recViewAll);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+
+        btnSwitchProfile = (ImageButton) mView.findViewById(R.id.userInfo);
+        btnSwitchProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switchToUserInfoActivity();
+            }
+        });
 
         mAdapter = new AdapterCoffee(new AdapterCoffee.GetOnCoffee() {
             @Override
@@ -85,5 +96,9 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
 
     }
 
+    public void switchToUserInfoActivity(){
+        Intent switchIntent = new Intent(getActivity(), UserInfoActivity.class);
+        startActivity(switchIntent);
+    }
 
 }

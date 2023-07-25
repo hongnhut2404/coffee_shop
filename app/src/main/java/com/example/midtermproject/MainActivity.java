@@ -4,8 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.example.midtermproject.Model.ModelCoffee;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -19,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     FragmentReward fragmentReward = new FragmentReward();
     FragmentMyOrder fragmentMyOrder = new FragmentMyOrder();
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, fragmentCoffeeMenu).commit();
 
         bottomNavigationView = findViewById(R.id.bottomNavigation);
+
+
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -66,5 +74,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.addToBackStack(FragmentCoffeeDetail.TAG);
         fragmentTransaction.commit();
     }
+
+
 
 }
