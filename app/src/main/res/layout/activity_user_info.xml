@@ -5,5 +5,212 @@
     android:layout_height="match_parent"
     tools:context=".UserInfoActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/profileTitle"
+        android:text="Profile"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profileTitle"
+        android:id="@+id/profileUserName"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="20dp">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/imageUserName"
+            android:src="@drawable/username"
+            android:layout_centerVertical="true"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imageUserName"
+            android:orientation="vertical"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Name"
+                android:textColor="#22001833"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Anderson"
+                android:id="@+id/editUserName"
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/editpen"
+            android:backgroundTint="@color/white"
+            android:layout_alignParentRight="true"
+            />
+
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profileUserName"
+        android:id="@+id/profilePhoneNumber"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="20dp">
+
+        <ImageView
+            android:id="@+id/imagePhoneNumber"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/phonenumber"
+            android:layout_centerVertical="true"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imagePhoneNumber"
+            android:orientation="vertical"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone Number"
+                android:textColor="#22001833"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:text="+ 84 0956183132"
+                android:id="@+id/editPhoneNunber"
+                android:textSize="20sp"/>
+
+
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/editpen"
+            android:backgroundTint="@color/white"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profilePhoneNumber"
+        android:id="@+id/profileEmail"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="20dp">
+
+        <ImageView
+            android:id="@+id/imageEmail"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/email"
+            android:layout_centerVertical="true"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imageEmail"
+            android:orientation="vertical"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textColor="#22001833"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="anderson@gmail.com"
+                android:id="@+id/editEmail"
+                android:textSize="20sp"/>
+
+
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/editpen"
+            android:backgroundTint="@color/white"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profileEmail"
+        android:id="@+id/profileAddress"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="20dp">
+
+        <ImageView
+            android:id="@+id/imageAddress"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/address"
+            android:layout_centerVertical="true"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imageAddress"
+            android:orientation="vertical"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:textColor="#22001833"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ho Chi Minh City"
+                android:id="@+id/editAddress"
+                android:textSize="20sp"/>
+
+
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/editpen"
+            android:backgroundTint="@color/white"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+
+
 
 </RelativeLayout>
