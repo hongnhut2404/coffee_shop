@@ -23,13 +23,18 @@ import org.w3c.dom.Text;
 public class FragmentCoffeeDetail extends Fragment {
 
     public static final String TAG = FragmentCoffeeDetail.class.getName();
-
     private TextView coffeeName;
     private ImageView coffeeImage;
     private TextView coffeePrice;
+    private Button btnAdd, btnMinus;
+    private TextView coffeeQuantity;
+    private int quantity = 0;
+    private float totalPrice = 0;
+    private float price = 0;
 
     private ImageButton btnBack;
     private View mView;
+
     public FragmentCoffeeDetail() {
     }
 
@@ -42,6 +47,12 @@ public class FragmentCoffeeDetail extends Fragment {
         coffeePrice = mView.findViewById(R.id.textCoffeePrice);
         coffeeImage = mView.findViewById(R.id.imageCoffeeDetail);
         btnBack = mView.findViewById(R.id.buttonBack);
+        btnAdd = mView.findViewById(R.id.incrementCoffee);
+        btnMinus = mView.findViewById(R.id.decrementCoffee);
+        coffeeQuantity = mView.findViewById(R.id.textQuantity);
+
+
+
 
         Bundle bundleReceive = getArguments();
         if (bundleReceive != null)
@@ -52,6 +63,7 @@ public class FragmentCoffeeDetail extends Fragment {
                 coffeeName.setText(modelCoffee.getCoffeeName());
                 coffeePrice.setText("$" + modelCoffee.getPrice());
                 Glide.with(mView).load(modelCoffee.getImageURL()).into(coffeeImage);
+                price = modelCoffee.getPrice();
 
             }
         }
@@ -63,6 +75,37 @@ public class FragmentCoffeeDetail extends Fragment {
                 {
                     getActivity().getSupportFragmentManager().popBackStack();
                 }
+            }
+        });
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                quantity = quantity + 1;
+                coffeeQuantity.setText(String.valueOf(quantity));
+                totalPrice = quantity * price;
+                coffeePrice.setText("$" + String.valueOf(totalPrice));
+
+            }
+        });
+
+        btnMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (quantity > 1)
+                {
+                    quantity = quantity - 1;
+                    coffeeQuantity.setText(String.valueOf(quantity));
+                    totalPrice = quantity * price;
+                    coffeePrice.setText("$" + String.valueOf(totalPrice));
+                }
+                else
+                {
+
+                }
+
+
+
             }
         });
 
