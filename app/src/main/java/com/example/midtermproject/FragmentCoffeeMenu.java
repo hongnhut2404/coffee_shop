@@ -19,11 +19,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.midtermproject.Adapter.AdapterCoffee;
 import com.example.midtermproject.MVVM.CoffeeViewModel;
 import com.example.midtermproject.MVVM.Repositoryu;
 import com.example.midtermproject.Model.ModelCoffee;
+import com.example.midtermproject.Model.ModelUser;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -39,6 +41,9 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
     AdapterCoffee mAdapter;
     RecyclerView recyclerView;
     CoffeeViewModel viewModel;
+
+    ModelUser modelUser = new ModelUser("Loki", "+ 84 0126183132", "anderson@gmail.com", "Ho Chi Minh City");
+    TextView userName;
 
     MainActivity mMainActivity;
     View mView;
@@ -56,6 +61,9 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
 
         recyclerView = mView.findViewById(R.id.recViewAll);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+
+        userName = (TextView) mView.findViewById(R.id.userName);
+        userName.setText(modelUser.getFullName().toString());
 
         btnSwitchProfile = (ImageButton) mView.findViewById(R.id.userInfo);
         btnSwitchProfile.setOnClickListener(new View.OnClickListener() {
@@ -98,7 +106,12 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
 
     public void switchToUserInfoActivity(){
         Intent switchIntent = new Intent(getActivity(), UserInfoActivity.class);
-        startActivity(switchIntent);
+        switchIntent.putExtra("key_sender_name", modelUser.getFullName().toString());
+        switchIntent.putExtra("key_sender_address", modelUser.getAddress().toString());
+        switchIntent.putExtra("key_sender_phone", modelUser.getPhoneNumber().toString());
+        switchIntent.putExtra("key_sender_email", modelUser.getEmail().toString());
+
+        getActivity().startActivity(switchIntent);
     }
 
 }

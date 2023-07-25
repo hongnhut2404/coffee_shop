@@ -49,6 +49,7 @@
                 android:layout_height="wrap_content"
                 android:text="Anderson"
                 android:id="@+id/editUserName"
+                android:enabled="false"
                 android:textSize="20sp"/>
 
         </LinearLayout>
@@ -98,9 +99,9 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="phone"
                 android:text="+ 84 0956183132"
                 android:id="@+id/editPhoneNunber"
+                android:enabled="false"
                 android:textSize="20sp"/>
 
 
@@ -149,6 +150,7 @@
                 android:layout_height="wrap_content"
                 android:text="anderson@gmail.com"
                 android:id="@+id/editEmail"
+                android:enabled="false"
                 android:textSize="20sp"/>
 
 
@@ -197,6 +199,7 @@
                 android:layout_height="wrap_content"
                 android:text="Ho Chi Minh City"
                 android:id="@+id/editAddress"
+                android:enabled="false"
                 android:textSize="20sp"/>
 
 
