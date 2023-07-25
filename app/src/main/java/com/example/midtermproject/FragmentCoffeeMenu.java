@@ -49,17 +49,9 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_coffee_menu, container, false);
-
-        return mView;
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState)
-    {
-        super.onViewCreated(view, savedInstanceState);
         mMainActivity = (MainActivity) getActivity();
 
-        recyclerView = view.findViewById(R.id.recViewAll);
+        recyclerView = mView.findViewById(R.id.recViewAll);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
         mAdapter = new AdapterCoffee(new AdapterCoffee.GetOnCoffee() {
@@ -76,6 +68,15 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
                 recyclerView.setAdapter(mAdapter);
             }
         });
+
+        return mView;
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState)
+    {
+        super.onViewCreated(view, savedInstanceState);
+
     }
 
     public void clickedCoffee(ModelCoffee modelCoffee)

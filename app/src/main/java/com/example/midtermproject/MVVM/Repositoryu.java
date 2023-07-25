@@ -31,8 +31,6 @@ public class Repositoryu {
         firebaseFirestore.collection("Coffee").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-
-
                 if (task.isSuccessful()){
                     coffeeModelList.clear();
                     for(DocumentSnapshot ds: task.getResult().getDocuments())

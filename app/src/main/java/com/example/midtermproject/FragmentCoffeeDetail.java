@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,7 +28,7 @@ public class FragmentCoffeeDetail extends Fragment {
     private ImageView coffeeImage;
     private TextView coffeePrice;
 
-    private FloatingActionButton btnBack;
+    private ImageButton btnBack;
     private View mView;
     public FragmentCoffeeDetail() {
     }
