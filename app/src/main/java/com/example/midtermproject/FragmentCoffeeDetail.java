@@ -29,8 +29,8 @@ public class FragmentCoffeeDetail extends Fragment {
     private Button btnAdd, btnMinus;
     private TextView coffeeQuantity;
     private int quantity = 0;
-    private float totalPrice = 0;
-    private float price = 0;
+    private int totalPrice = 0;
+    private int price = 0;
 
     private ImageButton btnBack;
     private View mView;
@@ -50,8 +50,6 @@ public class FragmentCoffeeDetail extends Fragment {
         btnAdd = mView.findViewById(R.id.incrementCoffee);
         btnMinus = mView.findViewById(R.id.decrementCoffee);
         coffeeQuantity = mView.findViewById(R.id.textQuantity);
-
-
 
 
         Bundle bundleReceive = getArguments();

@@ -9,13 +9,13 @@ public class ModelCoffee implements Serializable{
     String coffeeID;
     String coffeeName, imageURL;
 
-    float price;
+    int price;
     int redeemPoint;
 
     public ModelCoffee() {
     }
 
-    public ModelCoffee(String coffeeID, String coffeeName, String imageURL, float price, int redeemPoint) {
+    public ModelCoffee(String coffeeID, String coffeeName, String imageURL, int price, int redeemPoint) {
         this.coffeeID = coffeeID;
         this.coffeeName = coffeeName;
         this.imageURL = imageURL;
@@ -55,11 +55,11 @@ public class ModelCoffee implements Serializable{
         this.imageURL = imageURL;
     }
 
-    public float getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 }
