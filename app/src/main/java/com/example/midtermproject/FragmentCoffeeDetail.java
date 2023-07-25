@@ -65,6 +65,19 @@ public class FragmentCoffeeDetail extends Fragment {
         btn2Ice = mView.findViewById(R.id.buttonSelect2Ice);
         btn3Ice = mView.findViewById(R.id.buttonSelect3Ice);
 
+        //get Arguments from Fragment Menu
+        Bundle bundleReceive = getArguments();
+        if (bundleReceive != null) {
+            ModelCoffee modelCoffee = (ModelCoffee) bundleReceive.get("object_coffee");
+            if (modelCoffee != null) {
+                coffeeName.setText(modelCoffee.getCoffeeName());
+                coffeePrice.setText("$" + modelCoffee.getPrice());
+                Glide.with(mView).load(modelCoffee.getImageURL()).into(coffeeImage);
+                price = modelCoffee.getPrice();
+
+            }
+        }
+
         //Select Cold or Hot
         btnHot.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,17 +151,7 @@ public class FragmentCoffeeDetail extends Fragment {
             }
         });
 
-        Bundle bundleReceive = getArguments();
-        if (bundleReceive != null) {
-            ModelCoffee modelCoffee = (ModelCoffee) bundleReceive.get("object_coffee");
-            if (modelCoffee != null) {
-                coffeeName.setText(modelCoffee.getCoffeeName());
-                coffeePrice.setText("$" + modelCoffee.getPrice());
-                Glide.with(mView).load(modelCoffee.getImageURL()).into(coffeeImage);
-                price = modelCoffee.getPrice();
 
-            }
-        }
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override

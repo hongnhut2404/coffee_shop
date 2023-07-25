@@ -68,7 +68,7 @@
             android:layout_toLeftOf="@id/userInfo"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:backgroundTint="@color/white"
-            android:src="@drawable/cart" />
+            android:src="@drawable/person" />
 
     </RelativeLayout>
 
