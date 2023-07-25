@@ -35,7 +35,7 @@ public class FragmentCoffeeDetail extends Fragment {
     private int price = 0;
 
     private ImageButton btnBack;
-    private ImageButton btnHot, btnCold, btnSmall, btnMedium, btnBig, btn1Ice, btn2Ice, btn3Ice;
+    private ImageButton btnStay, btnAway, btnSmall, btnMedium, btnBig, btn1Ice, btn2Ice, btn3Ice;
     private View mView;
 
     public FragmentCoffeeDetail() {
@@ -54,8 +54,8 @@ public class FragmentCoffeeDetail extends Fragment {
         btnMinus = mView.findViewById(R.id.decrementCoffee);
         coffeeQuantity = mView.findViewById(R.id.textQuantity);
 
-        btnHot = mView.findViewById(R.id.buttonSelectHot);
-        btnCold = mView.findViewById(R.id.buttonSelectCold);
+        btnStay = mView.findViewById(R.id.buttonSelectStay);
+        btnAway = mView.findViewById(R.id.buttonSelectAway);
         btnSingle = mView.findViewById(R.id.buttonSingleShot);
         btnDouble = mView.findViewById(R.id.buttonDoubleShot);
         btnSmall = mView.findViewById(R.id.buttonSelectSmall);
@@ -79,19 +79,19 @@ public class FragmentCoffeeDetail extends Fragment {
         }
 
         //Select Cold or Hot
-        btnHot.setOnClickListener(new View.OnClickListener() {
+        btnStay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnHot.setAlpha(1.0f);
-                btnCold.setAlpha(0.2f);
+                btnStay.setAlpha(1.0f);
+                btnAway.setAlpha(0.2f);
             }
         });
 
-        btnCold.setOnClickListener(new View.OnClickListener() {
+        btnAway.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnHot.setAlpha(0.2f);
-                btnCold.setAlpha(1.0f);
+                btnStay.setAlpha(0.2f);
+                btnAway.setAlpha(1.0f);
             }
         });
 
@@ -148,6 +148,22 @@ public class FragmentCoffeeDetail extends Fragment {
                 btn1Ice.setAlpha(0.2f);
                 btn2Ice.setAlpha(0.2f);
                 btn3Ice.setAlpha(1.0f);
+            }
+        });
+
+        btnSingle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnSingle.setAlpha(1.0f);
+                btnDouble.setAlpha(0.2f);
+            }
+        });
+
+        btnDouble.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnSingle.setAlpha(0.2f);
+                btnDouble.setAlpha(1.0f);
             }
         });
 

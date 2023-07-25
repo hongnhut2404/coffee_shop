@@ -150,6 +150,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="Single"
+                    android:alpha="0.2"
                     android:textColor="@color/black"
                     android:backgroundTint="#D6D6D6"
                     android:id="@+id/buttonSingleShot"
@@ -183,18 +184,18 @@
                     android:layout_centerVertical="true"
                     android:backgroundTint="@color/white"
                     android:layout_alignParentRight="true"
-                    android:id="@+id/buttonSelectCold"
-                    android:src="@drawable/cold"/>
+                    android:id="@+id/buttonSelectAway"
+                    android:src="@drawable/away"/>
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:backgroundTint="@color/white"
-                    android:layout_toLeftOf="@id/buttonSelectCold"
+                    android:layout_toLeftOf="@id/buttonSelectAway"
                     android:alpha="0.2"
-                    android:id="@+id/buttonSelectHot"
-                    android:src="@drawable/cart"/>
+                    android:id="@+id/buttonSelectStay"
+                    android:src="@drawable/stay"/>
 
 
 
@@ -226,7 +227,7 @@
                     android:backgroundTint="@color/white"
                     android:layout_alignParentRight="true"
                     android:id="@+id/buttonSelectBig"
-                    android:src="@drawable/cart"/>
+                    android:src="@drawable/big"/>
 
                 <ImageButton
                     android:layout_width="wrap_content"
@@ -236,7 +237,7 @@
                     android:layout_toLeftOf="@id/buttonSelectBig"
                     android:alpha="0.2"
                     android:id="@+id/buttonSelectMedium"
-                    android:src="@drawable/cart"/>
+                    android:src="@drawable/medium"/>
 
                 <ImageButton
                     android:layout_width="wrap_content"
@@ -246,7 +247,7 @@
                     android:layout_toLeftOf="@id/buttonSelectMedium"
                     android:alpha="0.2"
                     android:id="@+id/buttonSelectSmall"
-                    android:src="@drawable/cart"/>
+                    android:src="@drawable/small"/>
 
 
 
@@ -277,7 +278,7 @@
                     android:backgroundTint="@color/white"
                     android:layout_alignParentRight="true"
                     android:id="@+id/buttonSelect3Ice"
-                    android:src="@drawable/cart"/>
+                    android:src="@drawable/ice"/>
 
                 <ImageButton
                     android:layout_width="wrap_content"
@@ -287,7 +288,7 @@
                     android:layout_toLeftOf="@id/buttonSelect3Ice"
                     android:alpha="0.2"
                     android:id="@+id/buttonSelect2Ice"
-                    android:src="@drawable/cart"/>
+                    android:src="@drawable/twoice"/>
 
                 <ImageButton
                     android:layout_width="wrap_content"
@@ -297,7 +298,7 @@
                     android:layout_toLeftOf="@id/buttonSelect2Ice"
                     android:alpha="0.2"
                     android:id="@+id/buttonSelect1Ice"
-                    android:src="@drawable/cart"/>
+                    android:src="@drawable/oneice"/>
 
             </RelativeLayout>
 

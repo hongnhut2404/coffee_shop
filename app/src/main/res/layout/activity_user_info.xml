@@ -58,6 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/editpen"
+            android:id="@+id/btnEditUserName"
             android:backgroundTint="@color/white"
             android:layout_alignParentRight="true"
             />
@@ -111,6 +112,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/editpen"
+            android:id="@+id/btnEditPhoneNumber"
             android:backgroundTint="@color/white"
             android:layout_alignParentRight="true"
             />
@@ -160,6 +162,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/editpen"
+            android:id="@+id/btnEditEmail"
             android:backgroundTint="@color/white"
             android:layout_alignParentRight="true"
             />
@@ -209,6 +212,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/editpen"
+            android:id="@+id/btnEditAddress"
             android:backgroundTint="@color/white"
             android:layout_alignParentRight="true"
             />
