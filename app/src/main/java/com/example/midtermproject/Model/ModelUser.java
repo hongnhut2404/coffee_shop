@@ -1,15 +1,26 @@
 package com.example.midtermproject.Model;
 
-public class ModelUser {
-    String fullName;
-    String phoneNumber;
-    String email;
-    String address;
+import javax.inject.Singleton;
+
+public class  ModelUser {
+
+    private static ModelUser modelUserInstance = null;
+    private String fullName;
+    private String phoneNumber;
+    private String email;
+    private String address;
 
     public ModelUser() {
     }
 
-    public ModelUser(String fullName, String phoneNumber, String email, String address) {
+    public static ModelUser getInstance(String fullName, String phoneNumber, String email, String address){
+        if (modelUserInstance == null)
+            modelUserInstance = new ModelUser(fullName, phoneNumber, email, address);
+        return modelUserInstance;
+
+    }
+
+    private ModelUser(String fullName, String phoneNumber, String email, String address) {
         this.fullName = fullName;
         this.phoneNumber = phoneNumber;
         this.email = email;

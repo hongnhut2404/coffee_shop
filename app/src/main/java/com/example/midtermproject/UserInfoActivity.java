@@ -9,12 +9,14 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class UserInfoActivity extends AppCompatActivity {
+import com.example.midtermproject.Model.ModelUser;
 
+public class UserInfoActivity extends AppCompatActivity {
+    ModelUser modelUser = new ModelUser();
     private EditText editName, editPhone, editAddress, editEmail;
     private String userName, userPhone, userAddress, userEmail;
 
-    private ImageButton btnEditName, btnEditPhone, btnEditAddress, btnEditEmail;
+    private ImageButton btnEditName, btnEditPhone, btnEditAddress, btnEditEmail, btnBackToMenu;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info);
@@ -35,49 +37,59 @@ public class UserInfoActivity extends AppCompatActivity {
         btnEditName = findViewById(R.id.btnEditUserName);
         btnEditPhone =findViewById(R.id.btnEditPhoneNumber);
         btnEditEmail = findViewById(R.id.btnEditEmail);
+        btnBackToMenu = findViewById(R.id.btnBackInfoMenu);
 
         editName.setText(userName);
         editPhone.setText(userPhone);
         editAddress.setText(userAddress);
         editEmail.setText(userEmail);
 
+        btnBackToMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent switchIntent = new Intent(getApplicationContext(), MainActivity.class);
+                switchIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(switchIntent);
+            }
+        });
+
         btnEditName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                changeProfile(editName, userName);
+                changeProfile(editName);
+                modelUser.setFullName("joi");
             }
         });
 
         btnEditPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                changeProfile(editPhone, userPhone);
+                changeProfile(editPhone);
             }
         });
 
         btnEditAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                changeProfile(editAddress, userAddress);
+                changeProfile(editAddress);
             }
         });
 
         btnEditEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                changeProfile(editEmail, userEmail);
+                changeProfile(editEmail);
             }
         });
 
 
     }
 
-    public void changeProfile(TextView edit, String editInfo)
+    public void changeProfile(TextView edit)
     {
         if (edit.isEnabled())
         {
             edit.setText(edit.getText().toString());
-            editInfo = edit.getText().toString();
             edit.setEnabled(false);
         }
         else

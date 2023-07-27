@@ -5,19 +5,42 @@
     android:layout_height="match_parent"
     tools:context=".UserInfoActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp"
-        android:id="@+id/profileTitle"
-        android:text="Profile"/>
+        android:id="@+id/layoutTitleUserInfo"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/arrowback"
+            android:backgroundTint="@color/white"
+            android:id="@+id/btnBackInfoMenu"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/profileTitle"
+            android:text="Profile"/>
+
+
+    </RelativeLayout>
+
+
+
+
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/profileTitle"
+        android:layout_below="@id/layoutTitleUserInfo"
         android:id="@+id/profileUserName"
         android:layout_marginTop="20dp"
         android:paddingHorizontal="20dp">
