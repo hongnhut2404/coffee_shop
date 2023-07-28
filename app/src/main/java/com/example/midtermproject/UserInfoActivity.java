@@ -23,14 +23,10 @@ public class UserInfoActivity extends AppCompatActivity {
 
         Intent intentUserInfo = getIntent();
 
-        userName = intentUserInfo.getStringExtra("key_sender_name");
-        userPhone = intentUserInfo.getStringExtra("key_sender_phone");
-        userAddress = intentUserInfo.getStringExtra("key_sender_address");
-        userEmail = intentUserInfo.getStringExtra("key_sender_email");
-//        userName = modelUser.getFullName();
-//        userPhone = modelUser.getPhoneNumber();
-//        userAddress = modelUser.getAddress();
-//        userEmail = modelUser.getEmail();
+        userName = modelUser.getFullName();
+        userPhone = modelUser.getPhoneNumber();
+        userAddress = modelUser.getAddress();
+        userEmail = modelUser.getEmail();
 
         editName = (EditText) findViewById(R.id.editUserName);
         editPhone = (EditText) findViewById(R.id.editPhoneNunber);
@@ -60,6 +56,7 @@ public class UserInfoActivity extends AppCompatActivity {
         btnEditName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editName.setSelection(userName.length());
                 changeProfile(editName, 0, modelUser);
             }
         });
@@ -67,6 +64,7 @@ public class UserInfoActivity extends AppCompatActivity {
         btnEditPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editPhone.setSelection(userPhone.length());
                 changeProfile(editPhone, 1, modelUser);
             }
         });
@@ -74,6 +72,7 @@ public class UserInfoActivity extends AppCompatActivity {
         btnEditAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editAddress.setSelection(userAddress.length());
                 changeProfile(editAddress, 2, modelUser);
             }
         });
@@ -81,6 +80,7 @@ public class UserInfoActivity extends AppCompatActivity {
         btnEditEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editEmail.setSelection(userEmail.length());
                 changeProfile(editEmail, 3, modelUser);
             }
         });

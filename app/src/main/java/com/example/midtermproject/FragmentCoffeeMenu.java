@@ -116,10 +116,6 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
 
     public void switchToUserInfoActivity(){
         Intent switchIntent = new Intent(getActivity(), UserInfoActivity.class);
-        switchIntent.putExtra("key_sender_name", modelUser.getFullName().toString());
-        switchIntent.putExtra("key_sender_address", modelUser.getAddress().toString());
-        switchIntent.putExtra("key_sender_phone", modelUser.getPhoneNumber().toString());
-        switchIntent.putExtra("key_sender_email", modelUser.getEmail().toString());
 
         getActivity().startActivity(switchIntent);
     }
