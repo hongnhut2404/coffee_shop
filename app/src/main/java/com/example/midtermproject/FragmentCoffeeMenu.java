@@ -42,7 +42,7 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
     RecyclerView recyclerView;
     CoffeeViewModel viewModel;
     TextView userName;
-    ModelUser modelUser;
+    ModelUser modelUser = ModelUser.getInstance();
     MainActivity mMainActivity;
     View mView;
     ImageButton btnSwitchProfile;
@@ -59,11 +59,7 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
         userName = (TextView) mView.findViewById(R.id.userName);
 
         //Initialize data for user
-        modelUser=ModelUser.getInstance();
-        modelUser.setFullName("Loki");
-        modelUser.setPhoneNumber("1231512");
-        modelUser.setAddress("Ho Chi Minh City");
-        modelUser.setEmail("nhutth2404@gmail.com");
+;
 
         //Set layout for Recycler view
         recyclerView = mView.findViewById(R.id.recViewAll);

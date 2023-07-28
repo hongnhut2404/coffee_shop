@@ -7,18 +7,20 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.midtermproject.Model.ModelCoffee;
+import com.example.midtermproject.Model.ModelUser;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
-
+    ModelUser modelUser=ModelUser.getInstance();
     FragmentCoffeeMenu fragmentCoffeeMenu = new FragmentCoffeeMenu();
     FragmentReward fragmentReward = new FragmentReward();
     FragmentMyOrder fragmentMyOrder = new FragmentMyOrder();
@@ -29,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        modelUser.setFullName("Loki");
+        modelUser.setPhoneNumber("1231512");
+        modelUser.setAddress("Ho Chi Minh City");
+        modelUser.setEmail("nhutth2404@gmail.com");
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, fragmentCoffeeMenu).commit();
 

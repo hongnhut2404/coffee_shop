@@ -1,8 +1,10 @@
 package com.example.midtermproject.Adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,8 +18,10 @@ import java.util.ArrayList;
 public class AdapterCoffeeOrder extends RecyclerView.Adapter<AdapterCoffeeOrder.OrderViewHolder> {
 
     private ArrayList<ModelCoffeeOrder> mListCoffeeOrder;
+    private Context context;
     public AdapterCoffeeOrder(ArrayList<ModelCoffeeOrder> mListCoffeeOrder) {
         this.mListCoffeeOrder = mListCoffeeOrder;
+        this.context = context;
     }
 
     public OrderViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -34,7 +38,7 @@ public class AdapterCoffeeOrder extends RecyclerView.Adapter<AdapterCoffeeOrder.
         }
         holder.textCoffeeName.setText(modelCoffeeOrder.getCoffeeName());
         holder.textPrice.setText(modelCoffeeOrder.getPrice());
-        holder.textAttribute.setText(modelCoffeeOrder.getIce());
+        holder.textAttribute.setText(modelCoffeeOrder.toStringAttribute());
         holder.textQuantity.setText(modelCoffeeOrder.getQuantity());
 
     }
@@ -52,12 +56,14 @@ public class AdapterCoffeeOrder extends RecyclerView.Adapter<AdapterCoffeeOrder.
 
         private TextView textCoffeeName;
         private TextView textAttribute, textQuantity, textPrice;
+        private ImageView imageView;
         public OrderViewHolder( View itemView) {
             super(itemView);
             this.textCoffeeName = itemView.findViewById(R.id.textCoffeeNameCart);
             this.textAttribute = itemView.findViewById(R.id.textAttributeCart);
             this.textQuantity = itemView.findViewById(R.id.textQuantityCart);
             this.textPrice = itemView.findViewById(R.id.textPriceCart);
+            this.imageView = itemView.findViewById(R.id.imageCoffeeCart);
         }
     }
 }
