@@ -225,6 +225,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:backgroundTint="@color/white"
+                    android:alpha="0.2"
                     android:layout_alignParentRight="true"
                     android:id="@+id/buttonSelectBig"
                     android:src="@drawable/big"/>
@@ -245,7 +246,6 @@
                     android:layout_centerVertical="true"
                     android:backgroundTint="@color/white"
                     android:layout_toLeftOf="@id/buttonSelectMedium"
-                    android:alpha="0.2"
                     android:id="@+id/buttonSelectSmall"
                     android:src="@drawable/small"/>
 
@@ -343,6 +343,7 @@
                 android:text="Add to cart"
                 android:textSize="20sp"
                 android:padding="10dp"
+                android:id="@+id/btnAddToCart"
                 android:layout_alignParentBottom="true"/>
 
 

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.midtermproject.Model.ModelCoffeeOrder;
 import com.example.midtermproject.R;
 
@@ -40,6 +41,7 @@ public class AdapterCoffeeOrder extends RecyclerView.Adapter<AdapterCoffeeOrder.
         holder.textPrice.setText(modelCoffeeOrder.getPrice());
         holder.textAttribute.setText(modelCoffeeOrder.toStringAttribute());
         holder.textQuantity.setText(modelCoffeeOrder.getQuantity());
+        Glide.with(holder.itemView.getContext()).load(mListCoffeeOrder.get(position).getImageURL()).into(holder.imageView);
 
     }
 

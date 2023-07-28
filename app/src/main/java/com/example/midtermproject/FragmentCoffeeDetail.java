@@ -31,10 +31,12 @@ public class FragmentCoffeeDetail extends Fragment {
     private TextView coffeePrice;
     private Button btnAdd, btnMinus, btnDouble, btnSingle;
     private TextView coffeeQuantity;
+
     private int quantity = 1;
+    private double weight = 1;
     private int totalPrice = 0;
     private int price = 0;
-
+    private Button btnAddToCart;
     private ImageButton btnBack;
     private ImageButton btnStay, btnAway, btnSmall, btnMedium, btnBig, btn1Ice, btn2Ice, btn3Ice;
     private View mView;
@@ -54,6 +56,7 @@ public class FragmentCoffeeDetail extends Fragment {
         btnAdd = mView.findViewById(R.id.incrementCoffee);
         btnMinus = mView.findViewById(R.id.decrementCoffee);
         coffeeQuantity = mView.findViewById(R.id.textQuantity);
+        btnAddToCart = mView.findViewById(R.id.btnAddToCart);
 
         btnStay = mView.findViewById(R.id.buttonSelectStay);
         btnAway = mView.findViewById(R.id.buttonSelectAway);
@@ -65,6 +68,15 @@ public class FragmentCoffeeDetail extends Fragment {
         btn1Ice = mView.findViewById(R.id.buttonSelect1Ice);
         btn2Ice = mView.findViewById(R.id.buttonSelect2Ice);
         btn3Ice = mView.findViewById(R.id.buttonSelect3Ice);
+
+        //Change activity
+        btnAddToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), CartActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
 
         //get Arguments from Fragment Menu
         Bundle bundleReceive = getArguments();
@@ -103,6 +115,9 @@ public class FragmentCoffeeDetail extends Fragment {
                 btnSmall.setAlpha(1.0f);
                 btnMedium.setAlpha(0.2f);
                 btnBig.setAlpha(0.2f);
+                weight = 1;
+                totalPrice = (int) (quantity * price * weight);
+                coffeePrice.setText("$" + String.valueOf(totalPrice));
             }
         });
 
@@ -112,6 +127,9 @@ public class FragmentCoffeeDetail extends Fragment {
                 btnSmall.setAlpha(0.2f);
                 btnMedium.setAlpha(1.0f);
                 btnBig.setAlpha(0.2f);
+                weight = 1.5;
+                totalPrice = (int) (quantity * price * weight);
+                coffeePrice.setText("$" + String.valueOf(totalPrice));
             }
         });
 
@@ -121,6 +139,9 @@ public class FragmentCoffeeDetail extends Fragment {
                 btnSmall.setAlpha(0.2f);
                 btnMedium.setAlpha(0.2f);
                 btnBig.setAlpha(1.0f);
+                weight = 2;
+                totalPrice = (int) (quantity * price * weight);
+                coffeePrice.setText("$" + String.valueOf(totalPrice));
             }
         });
 
@@ -184,7 +205,7 @@ public class FragmentCoffeeDetail extends Fragment {
             public void onClick(View v) {
                 quantity = quantity + 1;
                 coffeeQuantity.setText(String.valueOf(quantity));
-                totalPrice = quantity * price;
+                totalPrice = (int) (quantity * price * weight);
                 coffeePrice.setText("$" + String.valueOf(totalPrice));
 
             }
@@ -196,7 +217,7 @@ public class FragmentCoffeeDetail extends Fragment {
                 if (quantity > 1) {
                     quantity = quantity - 1;
                     coffeeQuantity.setText(String.valueOf(quantity));
-                    totalPrice = quantity * price;
+                    totalPrice = (int) (quantity * price * weight);
                     coffeePrice.setText("$" + String.valueOf(totalPrice));
                 } else {
 
