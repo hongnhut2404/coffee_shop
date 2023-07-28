@@ -27,7 +27,43 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
         android:layout_below="@id/textTitleCart"
         android:id="@+id/recCart"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginHorizontal="10dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = "Checkout"
+            android:id="@+id/btnCheckoutCart"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text = "Total price"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textTotalPriceCart"
+                android:text="$ 9.00"
+                android:textSize="30dp"/>
+            
+        </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

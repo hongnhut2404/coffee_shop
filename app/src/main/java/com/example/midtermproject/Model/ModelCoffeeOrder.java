@@ -14,6 +14,16 @@ public class ModelCoffeeOrder extends ModelCoffee implements Serializable {
     private int quantity;
     private int select;
 
+    public int getTotalPrice(){
+        if (size == 0)
+            return price * quantity;
+        else if (size == 1)
+            return (int) (price * quantity * 1.5);
+        else if (size == 2)
+            return price * quantity;
+        return 0;
+    }
+
 
 
     public String toStringAttribute()
@@ -34,7 +44,7 @@ public class ModelCoffeeOrder extends ModelCoffee implements Serializable {
         strSelect.add("away");
 
 
-        String attribute = strSize.get(size) + "|" + strIce.get(ice) + "|" + strShot.get(shot) + "|" + strSelect.get(select);
+        String attribute = strSize.get(size) + " | " + strIce.get(ice) + " | " + strShot.get(shot) + " | " + strSelect.get(select);
         return attribute;
     }
 

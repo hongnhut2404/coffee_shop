@@ -35,20 +35,20 @@
                     android:layout_height="wrap_content"
                     android:text="Americano"
                     android:id="@+id/textCoffeeNameCart"
-                    android:textSize="30dp"/>
+                    android:textSize="25dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Attribute"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:id="@+id/textAttributeCart"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Quantity"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:id="@+id/textQuantityCart"/>
             </LinearLayout>
 
