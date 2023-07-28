@@ -4,14 +4,15 @@ import androidx.transition.Visibility;
 
 import org.checkerframework.checker.units.qual.A;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ModelCoffeeOrder extends ModelCoffee {
+public class ModelCoffeeOrder extends ModelCoffee implements Serializable {
     private int size;
-    private boolean shot;
+    private int shot;
     private int ice;
     private int quantity;
-    private boolean select;
+    private int select;
 
 
 
@@ -35,17 +36,14 @@ public class ModelCoffeeOrder extends ModelCoffee {
         int shotIndex;
         int selectIndex;
 
-        if (shot) shotIndex = 0; else shotIndex = 1;
-        if (select) selectIndex = 0; else selectIndex = 1;
-
-        String attribute = strSize.get(size) + "|" + strIce.get(ice) + "|" + strShot.get(shotIndex) + "|" + strSelect.get(selectIndex);
+        String attribute = strSize.get(size) + "|" + strIce.get(ice) + "|" + strShot.get(shot) + "|" + strSelect.get(select);
         return attribute;
     }
 
     public ModelCoffeeOrder() {
     }
 
-    public ModelCoffeeOrder(int size, boolean shot, int ice, boolean select, int quantity) {
+    public ModelCoffeeOrder(int size, int shot, int ice, int select, int quantity) {
         this.size = size;
         this.shot = shot;
         this.ice = ice;
@@ -54,7 +52,7 @@ public class ModelCoffeeOrder extends ModelCoffee {
     }
 
 
-    public ModelCoffeeOrder(String coffeeID, String coffeeName, String imageURL, int price, int redeemPoint, int size, boolean shot, int ice, int quantity, boolean select) {
+    public ModelCoffeeOrder(String coffeeID, String coffeeName, String imageURL, int price, int redeemPoint, int size, int shot, int ice, int quantity, int select) {
         super(coffeeID, coffeeName, imageURL, price, redeemPoint);
         this.size = size;
         this.shot = shot;
@@ -71,11 +69,11 @@ public class ModelCoffeeOrder extends ModelCoffee {
         this.size = size;
     }
 
-    public boolean isShot() {
+    public int isShot() {
         return shot;
     }
 
-    public void setShot(boolean shot) {
+    public void setShot(int shot) {
         this.shot = shot;
     }
 
@@ -95,11 +93,25 @@ public class ModelCoffeeOrder extends ModelCoffee {
         this.quantity = quantity;
     }
 
-    public boolean isSelect() {
+    public int isSelect() {
         return select;
     }
 
-    public void setSelect(boolean select) {
+    public void setSelect(int select) {
+        this.select = select;
+    }
+
+    public void setAttribute(ModelCoffee modelCoffee, int size, int shot, int quantity, int ice, int select)
+    {
+        this.coffeeName = modelCoffee.getCoffeeName();
+        this.coffeeID = modelCoffee.getCoffeeID();
+        this.price = modelCoffee.getPrice();
+        this.imageURL = modelCoffee.getImageURL();
+        this.redeemPoint = modelCoffee.getRedeemPoint();
+        this.size = size;
+        this.shot = shot;
+        this.quantity = quantity;
+        this.ice = ice;
         this.select = select;
     }
 }

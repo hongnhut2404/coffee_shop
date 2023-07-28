@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.transition.Visibility;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.midtermproject.Model.ModelCoffee;
+import com.example.midtermproject.Model.ModelCoffeeOrder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -32,10 +34,10 @@ public class FragmentCoffeeDetail extends Fragment {
     private Button btnAdd, btnMinus, btnDouble, btnSingle;
     private TextView coffeeQuantity;
 
-    private int quantity = 1;
+    private int quantity = 1, price = 0, totalPrice = 0, size = 0, ice = 0, select = 0, shot = 0;
     private double weight = 1;
-    private int totalPrice = 0;
-    private int price = 0;
+    private  ModelCoffee modelCoffee;
+    private ModelCoffeeOrder modelCoffeeOrder;
     private Button btnAddToCart;
     private ImageButton btnBack;
     private ImageButton btnStay, btnAway, btnSmall, btnMedium, btnBig, btn1Ice, btn2Ice, btn3Ice;
@@ -69,19 +71,30 @@ public class FragmentCoffeeDetail extends Fragment {
         btn2Ice = mView.findViewById(R.id.buttonSelect2Ice);
         btn3Ice = mView.findViewById(R.id.buttonSelect3Ice);
 
+        modelCoffeeOrder = new ModelCoffeeOrder();
+
         //Change activity
         btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), CartActivity.class);
                 getActivity().startActivity(intent);
+
+                modelCoffeeOrder.setSize(size);
+                modelCoffeeOrder.setIce(ice);
+                modelCoffeeOrder.setQuantity(quantity);
+                modelCoffeeOrder.setSelect(select);
+                modelCoffeeOrder.setShot(shot);
+
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_coffee_order", modelCoffeeOrder);
             }
         });
 
         //get Arguments from Fragment Menu
         Bundle bundleReceive = getArguments();
         if (bundleReceive != null) {
-            ModelCoffee modelCoffee = (ModelCoffee) bundleReceive.get("object_coffee");
+            modelCoffee = (ModelCoffee) bundleReceive.get("object_coffee");
             if (modelCoffee != null) {
                 coffeeName.setText(modelCoffee.getCoffeeName());
                 coffeePrice.setText("$" + modelCoffee.getPrice());
@@ -91,12 +104,13 @@ public class FragmentCoffeeDetail extends Fragment {
             }
         }
 
-        //Select Cold or Hot
+        //Select Stay or Away
         btnStay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 btnStay.setAlpha(1.0f);
                 btnAway.setAlpha(0.2f);
+                select = 0; //0: stay and 1: away
             }
         });
 
@@ -105,6 +119,7 @@ public class FragmentCoffeeDetail extends Fragment {
             public void onClick(View v) {
                 btnStay.setAlpha(0.2f);
                 btnAway.setAlpha(1.0f);
+                select = 1; //0: stay and 1: away
             }
         });
 
@@ -116,6 +131,7 @@ public class FragmentCoffeeDetail extends Fragment {
                 btnMedium.setAlpha(0.2f);
                 btnBig.setAlpha(0.2f);
                 weight = 1;
+                size = 0; // 0:small, 1:medium, 2: large
                 totalPrice = (int) (quantity * price * weight);
                 coffeePrice.setText("$" + String.valueOf(totalPrice));
             }
@@ -128,6 +144,7 @@ public class FragmentCoffeeDetail extends Fragment {
                 btnMedium.setAlpha(1.0f);
                 btnBig.setAlpha(0.2f);
                 weight = 1.5;
+                size = 1; // 0:small, 1:medium, 2: large
                 totalPrice = (int) (quantity * price * weight);
                 coffeePrice.setText("$" + String.valueOf(totalPrice));
             }
@@ -140,6 +157,7 @@ public class FragmentCoffeeDetail extends Fragment {
                 btnMedium.setAlpha(0.2f);
                 btnBig.setAlpha(1.0f);
                 weight = 2;
+                size = 2; // 0:small, 1:medium, 2: large
                 totalPrice = (int) (quantity * price * weight);
                 coffeePrice.setText("$" + String.valueOf(totalPrice));
             }
@@ -152,6 +170,7 @@ public class FragmentCoffeeDetail extends Fragment {
                 btn1Ice.setAlpha(1.0f);
                 btn2Ice.setAlpha(0.2f);
                 btn3Ice.setAlpha(0.2f);
+                ice = 0; //0: one ice, 1: two ice, 2: three ice
             }
         });
 
@@ -161,6 +180,7 @@ public class FragmentCoffeeDetail extends Fragment {
                 btn1Ice.setAlpha(0.2f);
                 btn2Ice.setAlpha(1.0f);
                 btn3Ice.setAlpha(0.2f);
+                ice = 1; //0: one ice, 1: two ice, 2: three ice
             }
         });
 
@@ -170,6 +190,7 @@ public class FragmentCoffeeDetail extends Fragment {
                 btn1Ice.setAlpha(0.2f);
                 btn2Ice.setAlpha(0.2f);
                 btn3Ice.setAlpha(1.0f);
+                ice = 2; //0: one ice, 1: two ice, 2: three ice
             }
         });
 
@@ -178,6 +199,7 @@ public class FragmentCoffeeDetail extends Fragment {
             public void onClick(View v) {
                 btnSingle.setAlpha(1.0f);
                 btnDouble.setAlpha(0.2f);
+                shot = 0; //0: single and 1: double
             }
         });
 
@@ -186,6 +208,7 @@ public class FragmentCoffeeDetail extends Fragment {
             public void onClick(View v) {
                 btnSingle.setAlpha(0.2f);
                 btnDouble.setAlpha(1.0f);
+                shot = 1; //0: single and 1: double
             }
         });
 
@@ -231,4 +254,6 @@ public class FragmentCoffeeDetail extends Fragment {
 
     public void onViewCreated(View view, Bundle saveInstanceState) {
     }
+
+
 }

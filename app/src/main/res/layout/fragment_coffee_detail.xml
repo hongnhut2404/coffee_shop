@@ -138,6 +138,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="Double"
+                    android:alpha="0.2"
                     android:textColor="@color/black"
                     android:backgroundTint="#D6D6D6"
 
@@ -150,7 +151,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="Single"
-                    android:alpha="0.2"
+
                     android:textColor="@color/black"
                     android:backgroundTint="#D6D6D6"
                     android:id="@+id/buttonSingleShot"
@@ -184,6 +185,7 @@
                     android:layout_centerVertical="true"
                     android:backgroundTint="@color/white"
                     android:layout_alignParentRight="true"
+                    android:alpha="0.2"
                     android:id="@+id/buttonSelectAway"
                     android:src="@drawable/away"/>
 
@@ -193,7 +195,7 @@
                     android:layout_centerVertical="true"
                     android:backgroundTint="@color/white"
                     android:layout_toLeftOf="@id/buttonSelectAway"
-                    android:alpha="0.2"
+
                     android:id="@+id/buttonSelectStay"
                     android:src="@drawable/stay"/>
 
@@ -277,6 +279,7 @@
                     android:layout_centerVertical="true"
                     android:backgroundTint="@color/white"
                     android:layout_alignParentRight="true"
+                    android:alpha="0.2"
                     android:id="@+id/buttonSelect3Ice"
                     android:src="@drawable/ice"/>
 
@@ -296,7 +299,7 @@
                     android:layout_centerVertical="true"
                     android:backgroundTint="@color/white"
                     android:layout_toLeftOf="@id/buttonSelect2Ice"
-                    android:alpha="0.2"
+
                     android:id="@+id/buttonSelect1Ice"
                     android:src="@drawable/oneice"/>
 
