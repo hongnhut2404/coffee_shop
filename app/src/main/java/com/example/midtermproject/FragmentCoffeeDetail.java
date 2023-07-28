@@ -77,17 +77,14 @@ public class FragmentCoffeeDetail extends Fragment {
         btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                modelCoffeeOrder.setAttribute(modelCoffee, size, shot, quantity, ice, select);
                 Intent intent = new Intent(getContext(), CartActivity.class);
+                intent.putExtra("object_coffee_order", modelCoffeeOrder);
                 getActivity().startActivity(intent);
 
-                modelCoffeeOrder.setSize(size);
-                modelCoffeeOrder.setIce(ice);
-                modelCoffeeOrder.setQuantity(quantity);
-                modelCoffeeOrder.setSelect(select);
-                modelCoffeeOrder.setShot(shot);
 
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("object_coffee_order", modelCoffeeOrder);
+
+
             }
         });
 

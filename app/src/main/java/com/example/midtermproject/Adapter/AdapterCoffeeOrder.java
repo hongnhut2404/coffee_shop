@@ -38,9 +38,9 @@ public class AdapterCoffeeOrder extends RecyclerView.Adapter<AdapterCoffeeOrder.
             return;
         }
         holder.textCoffeeName.setText(modelCoffeeOrder.getCoffeeName());
-        holder.textPrice.setText(modelCoffeeOrder.getPrice());
+        holder.textPrice.setText(modelCoffeeOrder.getPrice() + "");
         holder.textAttribute.setText(modelCoffeeOrder.toStringAttribute());
-        holder.textQuantity.setText(modelCoffeeOrder.getQuantity());
+        holder.textQuantity.setText(modelCoffeeOrder.getQuantity() + "");
         Glide.with(holder.itemView.getContext()).load(mListCoffeeOrder.get(position).getImageURL()).into(holder.imageView);
 
     }

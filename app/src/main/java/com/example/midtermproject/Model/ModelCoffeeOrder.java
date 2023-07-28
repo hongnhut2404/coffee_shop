@@ -30,11 +30,9 @@ public class ModelCoffeeOrder extends ModelCoffee implements Serializable {
         strShot.add("single");
         strShot.add("double");
         ArrayList<String> strSelect = new ArrayList<>();
-        strShot.add("stay");
-        strShot.add("away");
+        strSelect.add("stay");
+        strSelect.add("away");
 
-        int shotIndex;
-        int selectIndex;
 
         String attribute = strSize.get(size) + "|" + strIce.get(ice) + "|" + strShot.get(shot) + "|" + strSelect.get(select);
         return attribute;
