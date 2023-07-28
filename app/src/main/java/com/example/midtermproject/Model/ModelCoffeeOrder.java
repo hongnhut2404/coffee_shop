@@ -20,7 +20,7 @@ public class ModelCoffeeOrder extends ModelCoffee implements Serializable {
         else if (size == 1)
             return (int) (price * quantity * 1.5);
         else if (size == 2)
-            return price * quantity;
+            return price * quantity * 2;
         return 0;
     }
 
