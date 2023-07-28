@@ -21,7 +21,7 @@ public class AdapterRewardHistory extends  RecyclerView.Adapter<AdapterRewardHis
     private ArrayList<ModelRewardHistory> mListRewardHistory;
     @NonNull
     @Override
-    public RewardHistoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RewardHistoryViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.historyrewardstyle, parent, false);
         return new RewardHistoryViewHolder(view);
     }

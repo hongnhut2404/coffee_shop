@@ -3,63 +3,70 @@ package com.example.midtermproject.Model;
 import androidx.transition.Visibility;
 
 public class ModelCoffeeOrder extends ModelCoffee {
-    public enum Size {small, medium, big};
-    public enum Shot {singleS, doubleS};
-    public enum Ice {one, two, three};
-    public enum Temperature {hot, cold};
-
-    private Size size;
-    private Shot shot;
-    private Ice ice;
-    private Temperature temp;
+    private int size;
+    private boolean shot;
+    private int ice;
+    private int quantity;
+    private boolean select;
 
     public ModelCoffeeOrder() {
     }
 
-    public ModelCoffeeOrder(Size size, Shot shot, Ice ice, Temperature temp) {
+    public ModelCoffeeOrder(int size, boolean shot, int ice, boolean select, int quantity) {
         this.size = size;
         this.shot = shot;
         this.ice = ice;
-        this.temp = temp;
+        this.select = select;
+        this.quantity = quantity;
     }
 
-    public ModelCoffeeOrder(String coffeeID, String coffeeName, String imageURL, int price, int redeemPoint, Size size, Shot shot, Ice ice, Temperature temp) {
+
+    public ModelCoffeeOrder(String coffeeID, String coffeeName, String imageURL, int price, int redeemPoint, int size, boolean shot, int ice, int quantity, boolean select) {
         super(coffeeID, coffeeName, imageURL, price, redeemPoint);
         this.size = size;
         this.shot = shot;
         this.ice = ice;
-        this.temp = temp;
+        this.quantity = quantity;
+        this.select = select;
     }
 
-    public Size getSize() {
+    public int getSize() {
         return size;
     }
 
-    public void setSize(Size size) {
+    public void setSize(int size) {
         this.size = size;
     }
 
-    public Shot getShot() {
+    public boolean isShot() {
         return shot;
     }
 
-    public void setShot(Shot shot) {
+    public void setShot(boolean shot) {
         this.shot = shot;
     }
 
-    public Ice getIce() {
+    public int getIce() {
         return ice;
     }
 
-    public void setIce(Ice ice) {
+    public void setIce(int ice) {
         this.ice = ice;
     }
 
-    public Temperature getTemp() {
-        return temp;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setTemp(Temperature temp) {
-        this.temp = temp;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public boolean isSelect() {
+        return select;
+    }
+
+    public void setSelect(boolean select) {
+        this.select = select;
     }
 }
