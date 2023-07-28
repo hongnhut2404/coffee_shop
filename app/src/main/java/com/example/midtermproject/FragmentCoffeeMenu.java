@@ -57,8 +57,15 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
         mView = inflater.inflate(R.layout.fragment_coffee_menu, container, false);
         mMainActivity = (MainActivity) getActivity();
         userName = (TextView) mView.findViewById(R.id.userName);
-         modelUser = ModelUser.getInstance("Loki", "+ 84 0126183132", "anderson@gmail.com", "Ho Chi Minh City");
 
+        //Initialize data for user
+        modelUser=ModelUser.getInstance();
+        modelUser.setFullName("Loki");
+        modelUser.setPhoneNumber("1231512");
+        modelUser.setAddress("Ho Chi Minh City");
+        modelUser.setEmail("nhutth2404@gmail.com");
+
+        //Set layout for Recycler view
         recyclerView = mView.findViewById(R.id.recViewAll);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
 

@@ -10,12 +10,12 @@ public class  ModelUser {
     private String email;
     private String address;
 
-    public ModelUser() {
+    private ModelUser() {
     }
 
-    public static ModelUser getInstance(String fullName, String phoneNumber, String email, String address){
+    public static ModelUser getInstance(){
         if (modelUserInstance == null)
-            modelUserInstance = new ModelUser(fullName, phoneNumber, email, address);
+            modelUserInstance = new ModelUser();
         return modelUserInstance;
 
     }
