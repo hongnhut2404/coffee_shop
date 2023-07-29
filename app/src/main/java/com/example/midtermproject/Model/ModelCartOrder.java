@@ -39,4 +39,29 @@ public class ModelCartOrder {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public int calculateCartPrice()
+    {
+        int cartPrice = 0;
+        for (int i = 0; i<listModelCoffeeOrder.size(); i++)
+        {
+            cartPrice += listModelCoffeeOrder.get(i).getTotalPrice();
+        }
+        return cartPrice;
+    }
+
+    public String toStringDate()
+    {
+        return time.day + " " + time.month + " | " + time.hour + " : " + time.min;
+    }
+
+    public String toStringName()
+    {
+        String name = "";
+        for (int i = 0; i < listModelCoffeeOrder.size(); i++)
+        {
+            name = listModelCoffeeOrder.get(i).coffeeName + " | ";
+        }
+        return name;
+    }
 }
