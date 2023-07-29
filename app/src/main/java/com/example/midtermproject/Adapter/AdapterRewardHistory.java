@@ -34,6 +34,8 @@ public class AdapterRewardHistory extends  RecyclerView.Adapter<AdapterRewardHis
             return;
         }
         holder.textCoffeeName.setText(modelRewardHistory.getCoffeeNameHistoryReward());
+        holder.textPoints.setText(modelRewardHistory.getPoints() + " pts");
+        holder.textDateTime.setText(modelRewardHistory.toStringDate());
     }
 
     @Override
@@ -48,10 +50,14 @@ public class AdapterRewardHistory extends  RecyclerView.Adapter<AdapterRewardHis
     public class RewardHistoryViewHolder extends RecyclerView.ViewHolder{
 
         private TextView textCoffeeName;
+        private TextView textDateTime;
+        private TextView textPoints;
 
         public RewardHistoryViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.textCoffeeName = itemView.findViewById(R.id.nameCoffeeHistory);
+            textCoffeeName = itemView.findViewById(R.id.nameCoffeeHistory);
+            textDateTime = itemView.findViewById(R.id.dateCoffeeHistory);
+            textPoints = itemView.findViewById(R.id.pointsHistory);
         }
     }
 }

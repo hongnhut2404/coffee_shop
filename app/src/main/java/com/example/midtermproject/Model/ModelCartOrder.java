@@ -63,9 +63,13 @@ public class ModelCartOrder {
     public String toStringName()
     {
         String name = "";
-        for (int i = 0; i < listModelCoffeeOrder.size(); i++)
+        if (listModelCoffeeOrder.size() > 0)
         {
-            name += listModelCoffeeOrder.get(i).coffeeName + " | ";
+            name += listModelCoffeeOrder.get(0).coffeeName;
+        }
+        for (int i = 1; i < listModelCoffeeOrder.size(); i++)
+        {
+            name += " | " + listModelCoffeeOrder.get(i).coffeeName ;
         }
         return name;
     }

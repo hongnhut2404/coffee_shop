@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.example.midtermproject.Adapter.AdapterCoffeeOrder;
 import com.example.midtermproject.Model.ModelCartOrder;
 import com.example.midtermproject.Model.ModelCoffeeOrder;
+import com.example.midtermproject.Model.ModelRewardHistory;
 import com.example.midtermproject.Model.ModelUser;
 
 import java.time.LocalDateTime;
@@ -81,7 +82,10 @@ public class CartActivity extends AppCompatActivity {
                 AppController.listModelCartOrder.add(modelCartOrder);
                 AppController.listModelCoffeeOrder.clear();
 
-                Log.d("bulshit error", "Error again ");
+                ModelRewardHistory modelRewardHistory = new ModelRewardHistory(modelCartOrder.calculateCartPrice() * 10, modelCartOrder.toStringName());
+                AppController.listModelRewardHistory.add(modelRewardHistory);
+
+
                 startActivity(intent);
 
             }

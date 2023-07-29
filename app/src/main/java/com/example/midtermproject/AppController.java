@@ -18,5 +18,16 @@ public class AppController {
 
     public static ArrayList<ModelCartOrder> listModelCartOrderHistory = new ArrayList<>();
 
+    public static int getTotalRedeemPoints()
+    {
+        int totalRedeemPoints = 0;
+        for (int i = 0; i < listModelRewardHistory.size(); i++)
+        {
+            totalRedeemPoints+= listModelRewardHistory.get(i).getPoints();
+        }
+        return totalRedeemPoints;
+    }
+
+
 
 }

@@ -10,10 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.midtermproject.Adapter.AdapterRewardHistory;
 import com.example.midtermproject.Model.Date;
 import com.example.midtermproject.Model.ModelRewardHistory;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -24,6 +27,8 @@ public class FragmentReward extends Fragment {
     private View mView;
     private MainActivity mMainActivity;
 
+    private TextView textTotalPoints;
+
     public FragmentReward() {
     }
 
@@ -33,12 +38,15 @@ public class FragmentReward extends Fragment {
         // Inflate the layout for this fragment
         mView =  inflater.inflate(R.layout.fragment_reward, container, false);
         mMainActivity = (MainActivity) getActivity();
+        textTotalPoints = mView.findViewById(R.id.numberPoints);
+
+        textTotalPoints.setText(AppController.getTotalRedeemPoints() + "");
 
         recReward = mView.findViewById(R.id.recViewReward);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mMainActivity);
         recReward.setLayoutManager(linearLayoutManager);
 
-        AdapterRewardHistory adapterRewardHistory = new AdapterRewardHistory(getListReward());
+        AdapterRewardHistory adapterRewardHistory = new AdapterRewardHistory(AppController.listModelRewardHistory);
         recReward.setAdapter(adapterRewardHistory);
 
         RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(mMainActivity, DividerItemDecoration.VERTICAL);
@@ -46,13 +54,5 @@ public class FragmentReward extends Fragment {
 
         return mView;
 
-    }
-
-    private ArrayList<ModelRewardHistory> getListReward() {
-        for (int i = 1; i <= 20; i++)
-        {
-            AppController.listModelRewardHistory.add(new ModelRewardHistory());
-        }
-        return AppController.listModelRewardHistory;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.midtermproject.Model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ModelRewardHistory {
     int points;
@@ -38,5 +39,12 @@ public class ModelRewardHistory {
 
     public void setCoffeeNameHistoryReward(String coffeeNameHistoryReward) {
         this.coffeeNameHistoryReward = coffeeNameHistoryReward;
+    }
+
+    public String toStringDate()
+    {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String formattedDateTime = orderDate.format(dateTimeFormatter);
+        return formattedDateTime;
     }
 }
