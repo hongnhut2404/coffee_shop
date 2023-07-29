@@ -52,10 +52,7 @@ public class CartActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(mAdapter);
 
-        for (int i = 0; i < AppController.listModelCoffeeOrder.size(); i++)
-        {
-            totalPrice += AppController.listModelCoffeeOrder.get(i).getTotalPrice();
-        }
+        totalPrice = calculateTotalPrice(AppController.listModelCoffeeOrder);
         textTotalPrice.setText("$ " + totalPrice + "");
 
         btnBackMenu.setOnClickListener(new View.OnClickListener() {
@@ -67,34 +64,47 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
-//        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT) {
-//            @Override
-//            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-//                return false;
-//            }
-//
-//            @Override
-//            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-//                int position = viewHolder.getAdapterPosition();
-//               AppController.listModelCoffeeOrder.remove(position);
-//
-//                AdapterCoffeeOrder.notifyDataSetChanged();
-//            }
-//            @Override
-//            public void onChildDraw (Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive){
-//
-//                new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
-//                        .addBackgroundColor(ContextCompat.getColor(CartActivity.this, R.color.white))
-//                        .addActionIcon(R.drawable.arrowback)
-//                        .create()
-//                        .decorate();
-//
-//
-//
-//                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
-//            }
-//        });
-//        itemTouchHelper.attachToRecyclerView(recyclerView);
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
 
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+               AppController.listModelCoffeeOrder.remove(position);
+
+               mAdapter.notifyDataSetChanged();
+                totalPrice = calculateTotalPrice(AppController.listModelCoffeeOrder);
+                textTotalPrice.setText("$ " + totalPrice + "");
+
+            }
+            @Override
+            public void onChildDraw (Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive){
+
+                new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+                        .addBackgroundColor(ContextCompat.getColor(CartActivity.this, R.color.white))
+                        .addActionIcon(R.drawable.arrowback)
+                        .create()
+                        .decorate();
+
+
+
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+            }
+        });
+        itemTouchHelper.attachToRecyclerView(recyclerView);
+
+    }
+
+    public int calculateTotalPrice(ArrayList<ModelCoffeeOrder> listModelCoffeeOrder)
+    {
+        int totalPrice = 0;
+        for (int i = 0; i < AppController.listModelCoffeeOrder.size(); i++)
+        {
+            totalPrice += AppController.listModelCoffeeOrder.get(i).getTotalPrice();
+        }
+        return totalPrice;
     }
 }
