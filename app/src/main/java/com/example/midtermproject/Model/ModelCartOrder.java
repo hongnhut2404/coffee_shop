@@ -1,19 +1,14 @@
 package com.example.midtermproject.Model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class ModelCartOrder {
     private ArrayList<ModelCoffeeOrder> listModelCoffeeOrder;
-    private Date time;
+    private LocalDateTime time;
     private String address;
 
     public ModelCartOrder() {
-    }
-
-    public ModelCartOrder(ArrayList<ModelCoffeeOrder> listModelCoffeeOrder, Date time, String address) {
-        this.listModelCoffeeOrder = listModelCoffeeOrder;
-        this.time = time;
-        this.address = address;
     }
 
     public ArrayList<ModelCoffeeOrder> getListModelCoffeeOrder() {
@@ -24,11 +19,11 @@ public class ModelCartOrder {
         this.listModelCoffeeOrder = listModelCoffeeOrder;
     }
 
-    public Date getTime() {
+    public LocalDateTime getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(LocalDateTime time) {
         this.time = time;
     }
 
@@ -50,10 +45,6 @@ public class ModelCartOrder {
         return cartPrice;
     }
 
-    public String toStringDate()
-    {
-        return time.day + " " + time.month + " | " + time.hour + " : " + time.min;
-    }
 
     public String toStringName()
     {

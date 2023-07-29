@@ -1,16 +1,18 @@
 package com.example.midtermproject.Model;
 
+import java.time.LocalDateTime;
+
 public class ModelRewardHistory {
     int points;
-    Date orderDate;
+    LocalDateTime orderDate;
     String coffeeNameHistoryReward;
 
     public ModelRewardHistory() {
     }
 
-    public ModelRewardHistory(int points, Date orderDate, String coffeeNameHistoryReward) {
+    public ModelRewardHistory(int points, String coffeeNameHistoryReward) {
         this.points = points;
-        this.orderDate = orderDate;
+        this.orderDate = LocalDateTime.now();
         this.coffeeNameHistoryReward = coffeeNameHistoryReward;
     }
 
@@ -22,11 +24,11 @@ public class ModelRewardHistory {
         this.points = points;
     }
 
-    public Date getOrderDate() {
+    public LocalDateTime getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(Date orderDate) {
+    public void setOrderDate(LocalDateTime orderDate) {
         this.orderDate = orderDate;
     }
 

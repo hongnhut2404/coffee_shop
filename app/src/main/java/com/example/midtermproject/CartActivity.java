@@ -18,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.midtermproject.Adapter.AdapterCoffeeOrder;
+import com.example.midtermproject.Model.ModelCartOrder;
 import com.example.midtermproject.Model.ModelCoffeeOrder;
 
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class CartActivity extends AppCompatActivity {
     ImageButton btnBackMenu;
     Button btnCheckoutCart;
     TextView textTotalPrice;
+    ModelCartOrder modelCartOrder;
 
     int totalPrice = 0;
 
@@ -61,6 +63,14 @@ public class CartActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent);
+            }
+        });
+
+        btnCheckoutCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppController.listModelCartOrder.get(AppController.listModelCoffeeOrder.size()).setListModelCoffeeOrder(AppController.listModelCoffeeOrder);
+                AppController.listModelCoffeeOrder.clear();
             }
         });
 

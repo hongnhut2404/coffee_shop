@@ -51,7 +51,7 @@ public class FragmentReward extends Fragment {
     private ArrayList<ModelRewardHistory> getListReward() {
         for (int i = 1; i <= 20; i++)
         {
-            AppController.listModelRewardHistory.add(new ModelRewardHistory(12, new Date(i + 1, "June", 12, i + 10), "Black Tea"));
+            AppController.listModelRewardHistory.add(new ModelRewardHistory());
         }
         return AppController.listModelRewardHistory;
     }

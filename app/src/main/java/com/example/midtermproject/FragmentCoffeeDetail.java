@@ -36,7 +36,7 @@ public class FragmentCoffeeDetail extends Fragment {
 
     private int quantity = 1, price = 0, totalPrice = 0, size = 0, ice = 0, select = 0, shot = 0;
     private double weight = 1;
-    private  ModelCoffee modelCoffee;
+    private ModelCoffee modelCoffee;
     private ModelCoffeeOrder modelCoffeeOrder;
     private Button btnAddToCart;
     private ImageButton btnBack;
