@@ -26,6 +26,8 @@ public class FragmentMyOrder extends Fragment {
         View mView = inflater.inflate(R.layout.fragment_my_order, container, false);
         mTabLayout = mView.findViewById(R.id.tabLayoutMyOrder);
         mViewPager = mView.findViewById(R.id.viewPagerMyOrder);
+        //Note
+        mViewPager.setSaveEnabled(false);
 
 
         mAdapterViewPager = new AdapterViewPager(this);

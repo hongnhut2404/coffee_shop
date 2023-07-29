@@ -1,5 +1,7 @@
 package com.example.midtermproject.Adapter;
 
+import android.os.Parcelable;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;

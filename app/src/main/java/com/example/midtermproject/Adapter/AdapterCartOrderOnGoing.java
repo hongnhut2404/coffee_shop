@@ -64,7 +64,7 @@ public class AdapterCartOrderOnGoing extends RecyclerView.Adapter<AdapterCartOrd
         public CartOrderOnGoingViewHolder(@NonNull View itemView) {
             super(itemView);
             textDateTimeOrder = itemView.findViewById(R.id.textDateTimeOrder);
-            textCoffeeNameOrder = itemView.findViewById(R.id.textCoffeeNameCart);
+            textCoffeeNameOrder = itemView.findViewById(R.id.textCoffeeNameOrder);
             textAddressOrder = itemView.findViewById(R.id.textAddressOrder);
             textPriceOrder = itemView.findViewById(R.id.textPriceOrder);
         }

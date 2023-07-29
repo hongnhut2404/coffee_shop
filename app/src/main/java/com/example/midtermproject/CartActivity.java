@@ -6,6 +6,8 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.transition.Visibility;
+
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator;
 
 import android.content.Intent;
@@ -20,7 +22,10 @@ import android.widget.TextView;
 import com.example.midtermproject.Adapter.AdapterCoffeeOrder;
 import com.example.midtermproject.Model.ModelCartOrder;
 import com.example.midtermproject.Model.ModelCoffeeOrder;
+import com.example.midtermproject.Model.ModelUser;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class CartActivity extends AppCompatActivity {
@@ -30,6 +35,7 @@ public class CartActivity extends AppCompatActivity {
     Button btnCheckoutCart;
     TextView textTotalPrice;
     ModelCartOrder modelCartOrder;
+    ModelUser modelUser = ModelUser.getInstance();
 
     int totalPrice = 0;
 
@@ -69,7 +75,8 @@ public class CartActivity extends AppCompatActivity {
         btnCheckoutCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AppController.listModelCartOrder.get(AppController.listModelCoffeeOrder.size()).setListModelCoffeeOrder(AppController.listModelCoffeeOrder);
+                ModelCartOrder modelCartOrder = new ModelCartOrder(AppController.listModelCoffeeOrder, LocalDateTime.now(), modelUser.getAddress());
+                AppController.listModelCartOrder.add(modelCartOrder);
                 AppController.listModelCoffeeOrder.clear();
             }
         });
