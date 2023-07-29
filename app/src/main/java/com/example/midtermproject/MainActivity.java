@@ -44,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.bottomNavigation);
 
-
-
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
@@ -67,6 +65,12 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        int getIndex = getIntent().getIntExtra("order_success_activity", 0);
+        if (getIndex == 3)
+        {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, fragmentMyOrder).commit();
+        }
 
     }
 

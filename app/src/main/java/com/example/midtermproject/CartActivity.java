@@ -75,9 +75,15 @@ public class CartActivity extends AppCompatActivity {
         btnCheckoutCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), OrderSuccessActivity.class);
+
                 ModelCartOrder modelCartOrder = new ModelCartOrder(AppController.listModelCoffeeOrder, LocalDateTime.now(), modelUser.getAddress());
                 AppController.listModelCartOrder.add(modelCartOrder);
                 AppController.listModelCoffeeOrder.clear();
+
+                Log.d("bulshit error", "Error again ");
+                startActivity(intent);
+
             }
         });
 
