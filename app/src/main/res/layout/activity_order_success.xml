@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrderSuccessActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ordersuccess"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/imageOrderSuccess"
+        android:layout_marginTop="150dp"/>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/imageOrderSuccess"
+        android:id="@+id/textOrderSuccess1"
+        android:text="Order Success"
+        android:layout_marginTop="20dp"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Your order has been placed successfully"
+        android:layout_below="@id/textOrderSuccess1"
+        android:id="@+id/textOrderSuccess2"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="For more details, go to my orders."
+        android:layout_below="@id/textOrderSuccess2"
+        android:id="@+id/textOrderSuccess3"
+        android:layout_marginTop="10dp"/>
+    
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Track My Order"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/textOrderSuccess3"
+        android:layout_marginTop="50dp"
+        android:paddingHorizontal="80dp"
+        android:paddingVertical="15dp"
+        android:id="@+id/btnTrackOrder"
+        />
+
+</RelativeLayout>

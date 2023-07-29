@@ -49,8 +49,6 @@ public class AdapterCartOrderOnGoing extends RecyclerView.Adapter<AdapterCartOrd
         holder.textAddressOrder.setText(modelCartOrder.getAddress());
         holder.textDateTimeOrder.setText(modelCartOrder.toStringDate());
         holder.textCoffeeNameOrder.setText(modelCartOrder.toStringName());
-
-
     }
 
     @Override
