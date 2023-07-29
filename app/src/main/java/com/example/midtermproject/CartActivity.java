@@ -45,7 +45,7 @@ public class CartActivity extends AppCompatActivity {
         textTotalPrice = findViewById(R.id.textTotalPriceCart);
 
         mAdapter = new AdapterCoffeeOrder(AppController.listModelCoffeeOrder);
-        Log.d("list size",AppController.listModelCoffeeOrder.size()+"");
+        //Log.d("list size",AppController.listModelCoffeeOrder.size()+"");
 
         recyclerView = findViewById(R.id.recCart);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
