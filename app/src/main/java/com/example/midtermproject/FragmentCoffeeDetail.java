@@ -82,9 +82,6 @@ public class FragmentCoffeeDetail extends Fragment {
                 intent.putExtra("object_coffee_order", modelCoffeeOrder);
                 getActivity().startActivity(intent);
 
-
-
-
             }
         });
 
