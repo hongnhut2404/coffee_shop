@@ -22,7 +22,7 @@ public class AdapterRewardHistory extends  RecyclerView.Adapter<AdapterRewardHis
     @NonNull
     @Override
     public RewardHistoryViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.historyrewardstyle, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.history_reward_style, parent, false);
         return new RewardHistoryViewHolder(view);
     }
 

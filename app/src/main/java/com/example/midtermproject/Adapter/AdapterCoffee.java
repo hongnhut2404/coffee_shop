@@ -1,19 +1,14 @@
 package com.example.midtermproject.Adapter;
 
-import android.content.Intent;
-import android.graphics.ColorSpace;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.model.ModelCache;
 import com.example.midtermproject.Model.ModelCoffee;
 import com.example.midtermproject.R;
 
@@ -29,7 +24,7 @@ public class AdapterCoffee extends RecyclerView.Adapter<AdapterCoffee.CoffeeList
 
     @Override
     public CoffeeListHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.coffeeliststyle, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.coffee_list_style, parent, false);
         return new CoffeeListHolder(view, mGetOnCoffee);
     }
 

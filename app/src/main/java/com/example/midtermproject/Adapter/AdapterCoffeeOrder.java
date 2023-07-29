@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -26,7 +25,7 @@ public class AdapterCoffeeOrder extends RecyclerView.Adapter<AdapterCoffeeOrder.
     }
 
     public OrderViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cartstyle, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_style, parent, false);
         return new OrderViewHolder(view);
     }
 
