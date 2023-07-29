@@ -26,7 +26,7 @@ public class FragmentOnGoing extends Fragment {
         mView = inflater.inflate(R.layout.fragment_on_going, container, false);
         mMainActivity = (MainActivity) getActivity();
 
-        mAdapterCartOrderGoing = new AdapterCartOrderOnGoing(AppController.listModelCartOrder);
+        mAdapterCartOrderGoing = new AdapterCartOrderOnGoing(AppController.listModelCartOrder, requireContext());
 
         mRecyclerView = mView.findViewById(R.id.recOngoingOrder);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));

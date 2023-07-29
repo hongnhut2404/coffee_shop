@@ -1,5 +1,6 @@
 package com.example.midtermproject;
 
+import com.example.midtermproject.Adapter.AdapterCartOrderOnGoing;
 import com.example.midtermproject.Model.ModelCartOrder;
 import com.example.midtermproject.Model.ModelCoffee;
 import com.example.midtermproject.Model.ModelCoffeeOrder;
@@ -13,6 +14,9 @@ public class AppController {
     public static ArrayList<ModelCoffee> listModelCoffee = new ArrayList<>();
     public static ArrayList<ModelRewardHistory> listModelRewardHistory = new ArrayList<>();
     public static ArrayList<ModelCoffeeOrder> listModelCoffeeOrder = new ArrayList<>();
-
     public static ArrayList<ModelCartOrder> listModelCartOrder = new ArrayList<>();
+
+    public static ArrayList<ModelCartOrder> listModelCartOrderHistory = new ArrayList<>();
+
+
 }

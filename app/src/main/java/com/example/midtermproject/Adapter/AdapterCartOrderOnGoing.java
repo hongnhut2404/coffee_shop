@@ -5,11 +5,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.midtermproject.AppController;
+import com.example.midtermproject.FragmentOnGoing;
 import com.example.midtermproject.Model.ModelCartOrder;
+import com.example.midtermproject.Model.ModelCoffeeOrder;
 import com.example.midtermproject.Model.ModelUser;
 import com.example.midtermproject.R;
 
@@ -20,7 +25,8 @@ public class AdapterCartOrderOnGoing extends RecyclerView.Adapter<AdapterCartOrd
     private ModelUser modelUser = ModelUser.getInstance();
     private Context context;
 
-    public AdapterCartOrderOnGoing(ArrayList<ModelCartOrder> mListCartOrder) {
+
+    public AdapterCartOrderOnGoing(ArrayList<ModelCartOrder> mListCartOrder, Context context) {
         this.mListCartOrder = mListCartOrder;
         this.context = context;
     }
@@ -43,6 +49,8 @@ public class AdapterCartOrderOnGoing extends RecyclerView.Adapter<AdapterCartOrd
         holder.textAddressOrder.setText(modelCartOrder.getAddress());
         holder.textDateTimeOrder.setText(modelCartOrder.toStringDate());
         holder.textCoffeeNameOrder.setText(modelCartOrder.toStringName());
+
+
     }
 
     @Override

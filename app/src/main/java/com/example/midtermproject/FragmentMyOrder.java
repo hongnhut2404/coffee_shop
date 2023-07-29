@@ -28,6 +28,7 @@ public class FragmentMyOrder extends Fragment {
         mViewPager = mView.findViewById(R.id.viewPagerMyOrder);
         //Note
         mViewPager.setSaveEnabled(false);
+        //mViewPager.setOffscreenPageLimit(1);
 
 
         mAdapterViewPager = new AdapterViewPager(this);
