@@ -35,6 +35,7 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
     MainActivity mMainActivity;
     View mView;
     ImageButton btnSwitchProfile;
+    ImageButton btnSwitchCart;
 
     public FragmentCoffeeMenu() {
     }
@@ -47,7 +48,14 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
         mMainActivity = (MainActivity) getActivity();
         userName = (TextView) mView.findViewById(R.id.userName);
 
-        //Initialize data for user
+        btnSwitchCart = mView.findViewById(R.id.cart);
+        btnSwitchCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CartActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
 ;
 
         //Set layout for Recycler view

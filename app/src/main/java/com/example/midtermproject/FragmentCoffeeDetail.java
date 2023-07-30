@@ -40,6 +40,7 @@ public class FragmentCoffeeDetail extends Fragment {
     private ModelCoffeeOrder modelCoffeeOrder;
     private Button btnAddToCart;
     private ImageButton btnBack;
+    private ImageButton btnToCart;
     private ImageButton btnStay, btnAway, btnSmall, btnMedium, btnBig, btn1Ice, btn2Ice, btn3Ice;
     private View mView;
 
@@ -59,6 +60,7 @@ public class FragmentCoffeeDetail extends Fragment {
         btnMinus = mView.findViewById(R.id.decrementCoffee);
         coffeeQuantity = mView.findViewById(R.id.textQuantity);
         btnAddToCart = mView.findViewById(R.id.btnAddToCart);
+        btnToCart = mView.findViewById(R.id.buttonCart);
 
         btnStay = mView.findViewById(R.id.buttonSelectStay);
         btnAway = mView.findViewById(R.id.buttonSelectAway);
@@ -72,6 +74,14 @@ public class FragmentCoffeeDetail extends Fragment {
         btn3Ice = mView.findViewById(R.id.buttonSelect3Ice);
 
         modelCoffeeOrder = new ModelCoffeeOrder();
+
+        btnToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(requireContext(), CartActivity.class);
+                requireActivity().startActivity(intent);
+            }
+        });
 
         //Change activity
         btnAddToCart.setOnClickListener(new View.OnClickListener() {

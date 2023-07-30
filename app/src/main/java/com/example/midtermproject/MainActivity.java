@@ -85,6 +85,14 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+        int getIndexMenu = getIntent().getIntExtra("menu_activity", 0);
+        if (getIndexReward == 1)
+        {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, fragmentCoffeeMenu).commit();
+            bottomNavigationView.setSelectedItemId(R.id.menu);
+
+        }
+
     }
 
     public void goToDetailFragment(ModelCoffee modelCoffee)

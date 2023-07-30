@@ -47,7 +47,10 @@ public class CartActivity extends AppCompatActivity {
 
 
         ModelCoffeeOrder modelCoffeeOrder = (ModelCoffeeOrder) getIntent().getSerializableExtra("object_coffee_order");
-        AppController.listModelCoffeeOrder.add(modelCoffeeOrder);
+        if (modelCoffeeOrder!=null){
+            AppController.listModelCoffeeOrder.add(modelCoffeeOrder);
+        }
+
 
         btnBackMenu = findViewById(R.id.btnBackCartMenu);
         btnCheckoutCart = findViewById(R.id.btnCheckoutCart);
@@ -68,7 +71,7 @@ public class CartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                intent.putExtra("menu_activity", 1);
                 startActivity(intent);
             }
         });

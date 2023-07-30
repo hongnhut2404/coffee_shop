@@ -7,14 +7,14 @@
     tools:context=".FragmentMyOrder">
 
     <TextView
+        android:id="@+id/textTitleMyOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Order"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
-        android:id="@+id/textTitleMyOrder"
+        android:text="My Order"
         android:textSize="20sp"
-        />
+        android:layout_marginTop="20dp"/>
 
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
