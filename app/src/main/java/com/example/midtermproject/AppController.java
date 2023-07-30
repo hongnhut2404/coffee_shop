@@ -15,10 +15,12 @@ public class AppController {
     public static ArrayList<ModelRewardHistory> listModelRewardHistory = new ArrayList<>();
     public static ArrayList<ModelCoffeeOrder> listModelCoffeeOrder = new ArrayList<>();
     public static ArrayList<ModelCartOrder> listModelCartOrder = new ArrayList<>();
-
     public static ArrayList<ModelCartOrder> listModelCartOrderHistory = new ArrayList<>();
 
     public static ArrayList<ModelCoffee> listModelCoffeeReddeem = new ArrayList<>();
+
+    public static AdapterCartOrderOnGoing adapterCartOrderOnGoing;
+    public static AdapterCartOrderOnGoing adapterCartOrderHistory;
 
     public static int getTotalRedeemPoints()
     {
@@ -30,6 +32,23 @@ public class AppController {
         return totalRedeemPoints;
     }
 
+    public static void removeOnGoing(int position)
+    {
+        listModelCartOrder.remove(position);
+        adapterCartOrderOnGoing.notifyItemRemoved(position);
+    }
+    public static void addHistory(ModelCartOrder modelCartOrder)
+    {
+        listModelCartOrderHistory.add(modelCartOrder);
+        adapterCartOrderHistory.notifyItemInserted(listModelCartOrderHistory.size()-1);
+//        infoHistoryDoneAdapter.notifyDataSetChanged();
+    }
+
+    public static void addOnGoing(ModelCartOrder modelCartOrder)
+    {
+        listModelCartOrder.add(modelCartOrder);
+        adapterCartOrderOnGoing.notifyItemInserted(listModelCartOrder.size()-1);
+    }
 
 
 }

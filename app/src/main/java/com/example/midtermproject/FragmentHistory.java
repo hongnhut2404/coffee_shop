@@ -15,7 +15,7 @@ import com.example.midtermproject.Adapter.AdapterCartOrderOnGoing;
 
 public class FragmentHistory extends Fragment {
 
-    AdapterCartOrderOnGoing mAdapterCartOrderHistory;
+    //AdapterCartOrderOnGoing mAdapterCartOrderHistory;
     RecyclerView mRecyclerView;
     View mView;
     MainActivity mMainActivity;
@@ -28,11 +28,11 @@ public class FragmentHistory extends Fragment {
 
         mMainActivity = (MainActivity) getActivity();
 
-        mAdapterCartOrderHistory = new AdapterCartOrderOnGoing(AppController.listModelCartOrderHistory, requireContext());
+        //mAdapterCartOrderHistory = new AdapterCartOrderOnGoing(AppController.listModelCartOrderHistory, requireContext());
 
-        mRecyclerView = mView.findViewById(R.id.recOngoingOrder);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        mRecyclerView.setAdapter(mAdapterCartOrderHistory);
+        mRecyclerView = mView.findViewById(R.id.recHistoryOrder);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false));
+        mRecyclerView.setAdapter(AppController.adapterCartOrderHistory);
 
         return mView;
     }

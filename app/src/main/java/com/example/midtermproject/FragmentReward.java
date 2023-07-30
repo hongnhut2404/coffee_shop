@@ -1,5 +1,6 @@
 package com.example.midtermproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.midtermproject.Adapter.AdapterRewardHistory;
@@ -27,6 +29,8 @@ public class FragmentReward extends Fragment {
     private View mView;
     private MainActivity mMainActivity;
 
+    private Button btnRedeem;
+
     private TextView textTotalPoints;
 
     public FragmentReward() {
@@ -39,6 +43,15 @@ public class FragmentReward extends Fragment {
         mView =  inflater.inflate(R.layout.fragment_reward, container, false);
         mMainActivity = (MainActivity) getActivity();
         textTotalPoints = mView.findViewById(R.id.numberPoints);
+        btnRedeem = mView.findViewById(R.id.btnMoveToRedeem);
+
+        btnRedeem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), RedeemPointActivity.class);
+                startActivity(intent);
+            }
+        });
 
         textTotalPoints.setText(AppController.getTotalRedeemPoints() + "");
 
@@ -54,5 +67,11 @@ public class FragmentReward extends Fragment {
 
         return mView;
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        textTotalPoints.setText(AppController.getTotalRedeemPoints() + "");
     }
 }

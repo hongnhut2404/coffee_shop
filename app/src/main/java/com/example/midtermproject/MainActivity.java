@@ -44,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.bottomNavigation);
 
+        AppController.adapterCartOrderOnGoing = new AdapterCartOrderOnGoing(AppController.listModelCartOrder, this, new FragmentOnGoing());
+        AppController.adapterCartOrderHistory = new AdapterCartOrderOnGoing(AppController.listModelCartOrderHistory, this, new FragmentHistory());
+
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
@@ -66,10 +69,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        int getIndex = getIntent().getIntExtra("order_success_activity", 0);
-        if (getIndex == 3)
+        int getIndexOrder = getIntent().getIntExtra("order_success_activity", 0);
+        if (getIndexOrder == 3)
         {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, fragmentMyOrder).commit();
+            bottomNavigationView.setSelectedItemId(R.id.order);
+
+        }
+
+        int getIndexReward = getIntent().getIntExtra("reward_activity", 0);
+        if (getIndexReward == 2)
+        {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, fragmentReward).commit();
+            bottomNavigationView.setSelectedItemId(R.id.reward);
+
         }
 
     }

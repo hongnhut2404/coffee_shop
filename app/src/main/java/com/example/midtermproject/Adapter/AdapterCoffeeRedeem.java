@@ -56,16 +56,16 @@ public class AdapterCoffeeRedeem extends RecyclerView.Adapter<AdapterCoffeeRedee
         holder.btnRedeem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (modelCoffeeRedeem.getRedeemPoint() >= AppController.getTotalRedeemPoints())
+                if (modelCoffeeRedeem.getRedeemPoint() < AppController.getTotalRedeemPoints())
                 {
                     ModelRewardHistory modelRewardHistory = new ModelRewardHistory(modelCoffeeRedeem.getRedeemPoint() * -1, modelCoffeeRedeem.getCoffeeName());
                     AppController.listModelRewardHistory.add(modelRewardHistory);
-                    Toast toast = Toast.makeText(context.getApplicationContext(), "Redeem Successfully", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(holder.itemView.getContext(), "Redeem Successfully", Toast.LENGTH_SHORT);
                     toast.show();
                 }
                 else
                 {
-                    Toast toast = Toast.makeText(context.getApplicationContext(), "Redeem Failed", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(holder.itemView.getContext(), "Redeem Failed", Toast.LENGTH_SHORT);
                     toast.show();
                 }
 

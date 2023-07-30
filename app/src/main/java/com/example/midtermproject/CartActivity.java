@@ -79,7 +79,8 @@ public class CartActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), OrderSuccessActivity.class);
 
                 ModelCartOrder modelCartOrder = new ModelCartOrder(AppController.listModelCoffeeOrder, LocalDateTime.now(), modelUser.getAddress());
-                AppController.listModelCartOrder.add(modelCartOrder);
+                //AppController.listModelCartOrder.add(modelCartOrder);
+                AppController.addOnGoing(modelCartOrder);
                 AppController.listModelCoffeeOrder.clear();
 
                 ModelRewardHistory modelRewardHistory = new ModelRewardHistory(modelCartOrder.calculateCartPrice() * 10, modelCartOrder.toStringName());

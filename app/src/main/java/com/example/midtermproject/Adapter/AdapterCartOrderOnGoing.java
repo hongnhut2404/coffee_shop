@@ -24,7 +24,13 @@ public class AdapterCartOrderOnGoing extends RecyclerView.Adapter<AdapterCartOrd
     private ArrayList<ModelCartOrder> mListCartOrder;
     private ModelUser modelUser = ModelUser.getInstance();
     private Context context;
+    private Fragment fragment;
 
+    public AdapterCartOrderOnGoing(ArrayList<ModelCartOrder> mListCartOrder, Context context, Fragment fragment) {
+        this.mListCartOrder = mListCartOrder;
+        this.context = context;
+        this.fragment = fragment;
+    }
 
     public AdapterCartOrderOnGoing(ArrayList<ModelCartOrder> mListCartOrder, Context context) {
         this.mListCartOrder = mListCartOrder;
@@ -40,15 +46,33 @@ public class AdapterCartOrderOnGoing extends RecyclerView.Adapter<AdapterCartOrd
 
     @Override
     public void onBindViewHolder(@NonNull AdapterCartOrderOnGoing.CartOrderOnGoingViewHolder holder, int position) {
-        ModelCartOrder modelCartOrder = mListCartOrder.get(position);
+        ModelCartOrder modelCartOrder = mListCartOrder.get(holder.getLayoutPosition());
         if (modelCartOrder == null)
         {
             return;
         }
-        holder.textPriceOrder.setText(modelCartOrder.calculateCartPrice() + "");
+        holder.textPriceOrder.setText("$ " + modelCartOrder.calculateCartPrice());
         holder.textAddressOrder.setText(modelCartOrder.getAddress());
         holder.textDateTimeOrder.setText(modelCartOrder.toStringDate());
         holder.textCoffeeNameOrder.setText(modelCartOrder.toStringName());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(fragment instanceof FragmentOnGoing)
+                {
+                    ModelCartOrder temp = new ModelCartOrder(modelCartOrder);
+                    AppController.removeOnGoing(holder.getLayoutPosition());
+                    AppController.addHistory(temp);
+
+                    Toast.makeText(
+                            context,
+                            "Order successfully",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                }
+            }
+        });
     }
 
     @Override

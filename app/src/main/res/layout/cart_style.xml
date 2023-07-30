@@ -57,7 +57,6 @@
                 android:layout_height="wrap_content"
                 android:text="$ 3.00"
                 android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
                 android:id="@+id/textPriceCart"
                 android:textSize="30dp"/>
 
