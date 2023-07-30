@@ -18,6 +18,8 @@ public class AppController {
 
     public static ArrayList<ModelCartOrder> listModelCartOrderHistory = new ArrayList<>();
 
+    public static ArrayList<ModelCoffee> listModelCoffeeReddeem = new ArrayList<>();
+
     public static int getTotalRedeemPoints()
     {
         int totalRedeemPoints = 0;

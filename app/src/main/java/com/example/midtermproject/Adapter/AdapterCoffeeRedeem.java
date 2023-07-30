@@ -8,12 +8,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.midtermproject.AppController;
 import com.example.midtermproject.Model.ModelCoffee;
+import com.example.midtermproject.Model.ModelRewardHistory;
 import com.example.midtermproject.R;
 
 import java.time.LocalDateTime;
@@ -49,6 +52,25 @@ public class AdapterCoffeeRedeem extends RecyclerView.Adapter<AdapterCoffeeRedee
         holder.textValidDate.setText("Valid date: " + formattedDateTime);
         holder.btnRedeem.setText(modelCoffeeRedeem.getRedeemPoint() + " pts");
         Glide.with(holder.itemView.getContext()).load(mListCoffeeRedeem.get(position).getImageURL()).into(holder.imageCoffee);
+
+        holder.btnRedeem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (modelCoffeeRedeem.getRedeemPoint() >= AppController.getTotalRedeemPoints())
+                {
+                    ModelRewardHistory modelRewardHistory = new ModelRewardHistory(modelCoffeeRedeem.getRedeemPoint() * -1, modelCoffeeRedeem.getCoffeeName());
+                    AppController.listModelRewardHistory.add(modelRewardHistory);
+                    Toast toast = Toast.makeText(context.getApplicationContext(), "Redeem Successfully", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+                else
+                {
+                    Toast toast = Toast.makeText(context.getApplicationContext(), "Redeem Failed", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+
+            }
+        });
     }
 
     @Override
