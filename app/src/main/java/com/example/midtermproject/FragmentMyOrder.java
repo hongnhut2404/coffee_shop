@@ -34,6 +34,7 @@ public class FragmentMyOrder extends Fragment {
         mAdapterViewPager = new AdapterViewPager(this);
         mViewPager.setAdapter(mAdapterViewPager);
 
+
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

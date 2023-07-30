@@ -3,6 +3,7 @@ package com.example.midtermproject;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,6 +34,9 @@ public class FragmentHistory extends Fragment {
         mRecyclerView = mView.findViewById(R.id.recHistoryOrder);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false));
         mRecyclerView.setAdapter(AppController.adapterCartOrderHistory);
+
+        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(mMainActivity, DividerItemDecoration.VERTICAL);
+        mRecyclerView.addItemDecoration(itemDecoration);
 
         return mView;
     }

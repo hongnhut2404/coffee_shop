@@ -12,7 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.midtermproject.Adapter.AdapterLoyaltyCard;
 import com.example.midtermproject.Adapter.AdapterRewardHistory;
@@ -35,6 +37,7 @@ public class FragmentReward extends Fragment {
     private Button btnRedeem;
 
     private TextView textTotalPoints;
+    private LinearLayout layoutLoyaltyCard;
     private TextView textLoyaltyCard;
 
     public FragmentReward() {
@@ -51,6 +54,20 @@ public class FragmentReward extends Fragment {
         recLoyaltyCard = mView.findViewById(R.id.recLoyatyCardReward);
         recReward = mView.findViewById(R.id.recViewReward);
         textLoyaltyCard = mView.findViewById(R.id.textNumberLoyaltyCardReward);
+        layoutLoyaltyCard = mView.findViewById(R.id.layoutLoyaltyCardReward);
+
+        layoutLoyaltyCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (AppController.numberLoyaltyCard == 8)
+                {
+                    AppController.numberLoyaltyCard = 0;
+                    ModelRewardHistory modelRewardHistory = new ModelRewardHistory(4000, "Loyalty Card");
+                    AppController.listModelRewardHistory.add(modelRewardHistory);
+                    Toast.makeText(mMainActivity, "Receive 4000 redeem points", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
         btnRedeem.setOnClickListener(new View.OnClickListener() {
@@ -60,8 +77,6 @@ public class FragmentReward extends Fragment {
                 startActivity(intent);
             }
         });
-
-
 
 
         textTotalPoints.setText(AppController.getTotalRedeemPoints() + "");

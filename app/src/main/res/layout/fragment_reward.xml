@@ -76,6 +76,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_below="@id/textRoyaltyCard"
+            android:id="@+id/layoutLoyaltyCardReward"
             android:paddingBottom="5dp">
 
             <androidx.recyclerview.widget.RecyclerView

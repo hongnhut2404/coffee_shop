@@ -14,12 +14,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.midtermproject.Adapter.AdapterCoffee;
 import com.example.midtermproject.Adapter.AdapterLoyaltyCard;
 import com.example.midtermproject.MVVM.CoffeeViewModel;
 import com.example.midtermproject.Model.ModelCoffee;
+import com.example.midtermproject.Model.ModelRewardHistory;
 import com.example.midtermproject.Model.ModelUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -39,6 +42,8 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
     ModelUser modelUser = ModelUser.getInstance();
     MainActivity mMainActivity;
     View mView;
+
+    LinearLayout layoutLoyaltyCard;
     ImageButton btnSwitchProfile;
     ImageButton btnSwitchCart;
 
@@ -54,6 +59,20 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
         userName = (TextView) mView.findViewById(R.id.userName);
         numLoyaltyCard = mView.findViewById(R.id.textNumberLoyaltyCard);
         recyclerViewLoyaltyCard = mView.findViewById(R.id.recLoyatyCardMenu);
+        layoutLoyaltyCard = mView.findViewById(R.id.layoutLoyaltyCardMenu);
+
+        layoutLoyaltyCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (AppController.numberLoyaltyCard == 8)
+                {
+                    AppController.numberLoyaltyCard = 0;
+                    ModelRewardHistory modelRewardHistory = new ModelRewardHistory(4000, "Loyalty Card");
+                    AppController.listModelRewardHistory.add(modelRewardHistory);
+                    Toast.makeText(mMainActivity, "Receive 4000 redeem points", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
         btnSwitchCart = mView.findViewById(R.id.cart);

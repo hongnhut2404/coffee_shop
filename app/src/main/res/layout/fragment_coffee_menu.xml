@@ -115,6 +115,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_below="@id/textNumberLoyaltyCard"
+            android:id="@+id/layoutLoyaltyCardMenu"
             android:paddingBottom="5dp">
 
             <androidx.recyclerview.widget.RecyclerView
