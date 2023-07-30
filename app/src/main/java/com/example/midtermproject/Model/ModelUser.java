@@ -10,6 +10,8 @@ public class  ModelUser {
     private String email;
     private String address;
 
+    private String password;
+
     private ModelUser() {
     }
 
@@ -18,6 +20,22 @@ public class  ModelUser {
             modelUserInstance = new ModelUser();
         return modelUserInstance;
 
+    }
+
+    public ModelUser(String fullName, String phoneNumber, String email, String address, String password) {
+        this.fullName = fullName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.address = address;
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     private ModelUser(String fullName, String phoneNumber, String email, String address) {

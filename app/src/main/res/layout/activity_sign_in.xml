@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_splash"
+    tools:context=".SignInActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/signInTitle"
+        android:text="SIGN IN"
+        android:textColor="@color/white"
+        android:layout_alignParentTop="true"
+        android:fontFamily="sans-serif"
+        android:textSize="50dp"
+        android:layout_marginTop="80dp"/>
+
+    <EditText
+        android:id="@+id/editTextSignUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signInTitle"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="#5B7087"
+        android:drawableLeft="@drawable/profile"
+        android:drawablePadding="10dp"
+        android:hint="Username"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <EditText
+        android:id="@+id/editTextSignPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextSignUsername"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="15dp"
+        android:background="#5B7087"
+        android:inputType="numberPassword"
+        android:padding="20dp"
+        android:drawableLeft="@drawable/exclamation"
+        android:drawablePadding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:hint="Password" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextSignPassword"
+        android:id="@+id/btnSignIn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="Sign In"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif"
+        android:paddingHorizontal="40dp"
+        android:backgroundTint="#335376"
+        android:paddingVertical="12dp"/>
+
+
+</RelativeLayout>

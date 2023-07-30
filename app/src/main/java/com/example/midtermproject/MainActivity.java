@@ -34,12 +34,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        modelUser.setFullName("Loki");
-        modelUser.setPhoneNumber("1231512");
-        modelUser.setAddress("Ho Chi Minh City");
-        modelUser.setEmail("nhutth2404@gmail.com");
-
-
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, fragmentCoffeeMenu).commit();
 
         bottomNavigationView = findViewById(R.id.bottomNavigation);

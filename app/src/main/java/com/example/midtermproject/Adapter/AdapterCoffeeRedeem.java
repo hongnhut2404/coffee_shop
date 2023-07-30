@@ -45,7 +45,7 @@ public class AdapterCoffeeRedeem extends RecyclerView.Adapter<AdapterCoffeeRedee
             return;
         }
         LocalDateTime time = LocalDateTime.now().plusDays(7);
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String formattedDateTime = time.format(dateTimeFormatter);
 
         holder.textCoffeeName.setText(modelCoffeeRedeem.getCoffeeName());

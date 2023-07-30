@@ -56,7 +56,7 @@ public class FragmentReward extends Fragment {
         textLoyaltyCard = mView.findViewById(R.id.textNumberLoyaltyCardReward);
         layoutLoyaltyCard = mView.findViewById(R.id.layoutLoyaltyCardReward);
 
-        layoutLoyaltyCard.setOnClickListener(new View.OnClickListener() {
+        textLoyaltyCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (AppController.numberLoyaltyCard == 8)

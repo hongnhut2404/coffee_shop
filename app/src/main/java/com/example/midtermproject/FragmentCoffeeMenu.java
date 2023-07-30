@@ -61,7 +61,7 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
         recyclerViewLoyaltyCard = mView.findViewById(R.id.recLoyatyCardMenu);
         layoutLoyaltyCard = mView.findViewById(R.id.layoutLoyaltyCardMenu);
 
-        layoutLoyaltyCard.setOnClickListener(new View.OnClickListener() {
+        numLoyaltyCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (AppController.numberLoyaltyCard == 8)

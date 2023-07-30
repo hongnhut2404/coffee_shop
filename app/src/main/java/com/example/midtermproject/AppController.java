@@ -22,7 +22,7 @@ public class AppController {
     public static AdapterCartOrderOnGoing adapterCartOrderOnGoing;
     public static AdapterCartOrderOnGoing adapterCartOrderHistory;
 
-    public static int numberLoyaltyCard = 0;
+    public static int numberLoyaltyCard = 7;
 
     public static int getTotalRedeemPoints()
     {
