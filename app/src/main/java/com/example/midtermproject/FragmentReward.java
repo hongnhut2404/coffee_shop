@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.midtermproject.Adapter.AdapterLoyaltyCard;
 import com.example.midtermproject.Adapter.AdapterRewardHistory;
 import com.example.midtermproject.Model.Date;
 import com.example.midtermproject.Model.ModelRewardHistory;
@@ -26,12 +27,15 @@ import java.util.ArrayList;
 public class FragmentReward extends Fragment {
 
     private RecyclerView recReward;
+    private RecyclerView recLoyaltyCard;
     private View mView;
     private MainActivity mMainActivity;
 
+    private AdapterLoyaltyCard mAdapterLoyaltyCard;
     private Button btnRedeem;
 
     private TextView textTotalPoints;
+    private TextView textLoyaltyCard;
 
     public FragmentReward() {
     }
@@ -44,6 +48,10 @@ public class FragmentReward extends Fragment {
         mMainActivity = (MainActivity) getActivity();
         textTotalPoints = mView.findViewById(R.id.numberPoints);
         btnRedeem = mView.findViewById(R.id.btnMoveToRedeem);
+        recLoyaltyCard = mView.findViewById(R.id.recLoyatyCardReward);
+        recReward = mView.findViewById(R.id.recViewReward);
+        textLoyaltyCard = mView.findViewById(R.id.textNumberLoyaltyCardReward);
+
 
         btnRedeem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,9 +61,12 @@ public class FragmentReward extends Fragment {
             }
         });
 
+
+
+
         textTotalPoints.setText(AppController.getTotalRedeemPoints() + "");
 
-        recReward = mView.findViewById(R.id.recViewReward);
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mMainActivity);
         recReward.setLayoutManager(linearLayoutManager);
 
@@ -73,5 +84,9 @@ public class FragmentReward extends Fragment {
     public void onStart() {
         super.onStart();
         textTotalPoints.setText(AppController.getTotalRedeemPoints() + "");
+        textLoyaltyCard.setText(AppController.numberLoyaltyCard + "/8");
+        mAdapterLoyaltyCard = new AdapterLoyaltyCard();
+        recLoyaltyCard.setAdapter(mAdapterLoyaltyCard);
+        recLoyaltyCard.setLayoutManager(new LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false));
     }
 }

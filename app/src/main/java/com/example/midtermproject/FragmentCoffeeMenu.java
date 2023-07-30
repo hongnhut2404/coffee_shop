@@ -35,6 +35,7 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
     RecyclerView recyclerViewLoyaltyCard;
     CoffeeViewModel viewModel;
     TextView userName;
+    TextView numLoyaltyCard;
     ModelUser modelUser = ModelUser.getInstance();
     MainActivity mMainActivity;
     View mView;
@@ -51,6 +52,9 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
         mView = inflater.inflate(R.layout.fragment_coffee_menu, container, false);
         mMainActivity = (MainActivity) getActivity();
         userName = (TextView) mView.findViewById(R.id.userName);
+        numLoyaltyCard = mView.findViewById(R.id.textNumberLoyaltyCard);
+        recyclerViewLoyaltyCard = mView.findViewById(R.id.recLoyatyCardMenu);
+
 
         btnSwitchCart = mView.findViewById(R.id.cart);
         btnSwitchCart.setOnClickListener(new View.OnClickListener() {
@@ -65,8 +69,7 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
         //Set layout for Recycler view
         recyclerView = mView.findViewById(R.id.recViewAll);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        recyclerViewLoyaltyCard = mView.findViewById(R.id.recLoyatyCardMenu);
-        recyclerViewLoyaltyCard.setLayoutManager(new LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false));
+
 
         btnSwitchProfile = (ImageButton) mView.findViewById(R.id.userInfo);
         btnSwitchProfile.setOnClickListener(new View.OnClickListener() {
@@ -76,8 +79,7 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
             }
         });
 
-        mAdapterLoyaltyCard = new AdapterLoyaltyCard();
-        recyclerViewLoyaltyCard.setAdapter(mAdapterLoyaltyCard);
+
 
         mAdapter = new AdapterCoffee(new AdapterCoffee.GetOnCoffee() {
             @Override
@@ -108,6 +110,11 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
     public void onStart() {
         super.onStart();
         userName.setText(modelUser.getFullName().toString());
+        numLoyaltyCard.setText(AppController.numberLoyaltyCard + "/8");
+
+        mAdapterLoyaltyCard = new AdapterLoyaltyCard();
+        recyclerViewLoyaltyCard.setAdapter(mAdapterLoyaltyCard);
+        recyclerViewLoyaltyCard.setLayoutManager(new LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false));
     }
 
     public void clickedCoffee(ModelCoffee modelCoffee)

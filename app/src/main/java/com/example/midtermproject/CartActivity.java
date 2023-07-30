@@ -85,6 +85,11 @@ public class CartActivity extends AppCompatActivity {
                 //AppController.listModelCartOrder.add(modelCartOrder);
                 AppController.addOnGoing(modelCartOrder);
                 AppController.listModelCoffeeOrder.clear();
+                if (AppController.numberLoyaltyCard < 8)
+                {
+                    AppController.numberLoyaltyCard += 1;
+                }
+
 
                 ModelRewardHistory modelRewardHistory = new ModelRewardHistory(modelCartOrder.calculateCartPrice() * 10, modelCartOrder.toStringName());
                 AppController.listModelRewardHistory.add(modelRewardHistory);

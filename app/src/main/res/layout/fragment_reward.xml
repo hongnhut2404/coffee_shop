@@ -64,6 +64,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_marginTop="5dp"
+            android:id="@+id/textNumberLoyaltyCardReward"
             android:layout_marginRight="20dp"
             android:text="4/8"
             android:textColor="@color/white"
@@ -72,62 +73,19 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
             android:layout_below="@id/textRoyaltyCard"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginVertical="15dp"
-            android:background="@drawable/roundstyle"
-            android:backgroundTint="@color/white"
-            android:orientation="horizontal"
-            android:weightSum="8">
+            android:paddingBottom="5dp">
 
-            <ImageView
-                android:layout_width="0dp"
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/royaltycardcheck" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/royaltycardcheck" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/royaltycardcheck" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/royaltycardcheck" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/royaltycardcheck" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/royaltycardcheck" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/royaltycardcheck" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/royaltycardcheck" />
+                android:layout_below="@id/textRoyaltyCard"
+                android:layout_marginVertical="10dp"
+                android:id="@+id/recLoyatyCardReward"
+                android:background="@drawable/roundstyle"
+                android:layout_gravity="center_horizontal"/>
 
 
         </LinearLayout>

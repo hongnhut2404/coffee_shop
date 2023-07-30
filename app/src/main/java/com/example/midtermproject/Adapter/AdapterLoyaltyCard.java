@@ -28,11 +28,11 @@ public class AdapterLoyaltyCard extends RecyclerView.Adapter<AdapterLoyaltyCard.
 
     @Override
     public void onBindViewHolder(@NonNull LoyaltyCardViewHolder holder, int position) {
-        for (int i = AppController.numberLoyaltyCard; i < 8; i++)
+        if (position >= AppController.numberLoyaltyCard)
         {
             holder.imageView.setImageResource(R.drawable.royaltycarduncheck);
         }
-        for (int i = 0; i < AppController.numberLoyaltyCard; i++)
+        else
         {
             holder.imageView.setImageResource(R.drawable.royaltycardcheck);
         }
