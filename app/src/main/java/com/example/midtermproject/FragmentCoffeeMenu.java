@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.midtermproject.Adapter.AdapterCoffee;
+import com.example.midtermproject.Adapter.AdapterLoyaltyCard;
 import com.example.midtermproject.MVVM.CoffeeViewModel;
 import com.example.midtermproject.Model.ModelCoffee;
 import com.example.midtermproject.Model.ModelUser;
@@ -28,7 +30,9 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
 
     FirebaseFirestore firebaseFirestore;
     AdapterCoffee mAdapter;
+    AdapterLoyaltyCard mAdapterLoyaltyCard;
     RecyclerView recyclerView;
+    RecyclerView recyclerViewLoyaltyCard;
     CoffeeViewModel viewModel;
     TextView userName;
     ModelUser modelUser = ModelUser.getInstance();
@@ -61,6 +65,8 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
         //Set layout for Recycler view
         recyclerView = mView.findViewById(R.id.recViewAll);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        recyclerViewLoyaltyCard = mView.findViewById(R.id.recLoyatyCardMenu);
+        recyclerViewLoyaltyCard.setLayoutManager(new LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false));
 
         btnSwitchProfile = (ImageButton) mView.findViewById(R.id.userInfo);
         btnSwitchProfile.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +75,9 @@ public class FragmentCoffeeMenu extends Fragment implements AdapterCoffee.GetOnC
                 switchToUserInfoActivity();
             }
         });
+
+        mAdapterLoyaltyCard = new AdapterLoyaltyCard();
+        recyclerViewLoyaltyCard.setAdapter(mAdapterLoyaltyCard);
 
         mAdapter = new AdapterCoffee(new AdapterCoffee.GetOnCoffee() {
             @Override
